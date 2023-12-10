@@ -38,6 +38,11 @@ set(rg_proto_srcs "${CMAKE_CURRENT_BINARY_DIR}/route_guide.pb.cc")
 set(rg_proto_hdrs "${CMAKE_CURRENT_BINARY_DIR}/route_guide.pb.h")
 set(rg_grpc_srcs "${CMAKE_CURRENT_BINARY_DIR}/route_guide.grpc.pb.cc")
 set(rg_grpc_hdrs "${CMAKE_CURRENT_BINARY_DIR}/route_guide.grpc.pb.h")
+
+set(CMAKE_CXX_FLAGS "-g ${CMAKE_CXX_FLAGS}")
+set(CMAKE_VERBOSE_MAKEFILE ON)
+
+
 add_custom_command(
       OUTPUT "${hw_proto_srcs}" "${hw_proto_hdrs}" "${hw_grpc_srcs}" "${hw_grpc_hdrs}"
         "${rg_proto_srcs}" "${rg_proto_hdrs}" "${rg_grpc_srcs}" "${rg_grpc_hdrs}"
@@ -67,7 +72,9 @@ target_link_libraries(
   example_grpc_proto
   ${_REFLECTION}
   ${_GRPC_GRPCPP}
-  ${_PROTOBUF_LIBPROTOBUF})
+  ${_PROTOBUF_LIBPROTOBUF}
+  /usr/local/lib64/libabsl_log_internal_check_op.a /usr/local/lib64/libabsl_log_internal_nullguard.a /usr/local/lib64/libabsl_log_internal_message.a /usr/local/lib64/libabsl_log_internal_proto.a /usr/local/lib64/libabsl_examine_stack.a /usr/local/lib64/libabsl_log_sink.a /usr/local/lib64/libabsl_log_globals.a /usr/local/lib64/libutf8_validity.a /usr/local/lib64/libabsl_log_internal_conditions.a /usr/local/lib64/libabsl_log_internal_log_sink_set.a /usr/local/lib64/libabsl_log_globals.a  /usr/local/lib64/libabsl_log_sink.a /usr/local/lib64/libabsl_log_globals.a /usr/local/lib64/libabsl_log_internal_globals.a /usr/local/lib64/libabsl_log_internal_format.a 
+)
 
 # Targets multiplex_(client|server)
 foreach(_target multiplex_client multiplex_server)
@@ -78,5 +85,7 @@ foreach(_target multiplex_client multiplex_server)
     absl::flags_parse
     ${_REFLECTION}
     ${_GRPC_GRPCPP}
-    ${_PROTOBUF_LIBPROTOBUF})
+    ${_PROTOBUF_LIBPROTOBUF}
+    /usr/local/lib64/libabsl_log_internal_check_op.a /usr/local/lib64/libabsl_log_internal_nullguard.a /usr/local/lib64/libabsl_log_internal_message.a /usr/local/lib64/libabsl_log_internal_proto.a /usr/local/lib64/libabsl_examine_stack.a /usr/local/lib64/libabsl_log_sink.a /usr/local/lib64/libabsl_log_globals.a /usr/local/lib64/libutf8_validity.a /usr/local/lib64/libabsl_log_internal_conditions.a /usr/local/lib64/libabsl_log_internal_log_sink_set.a /usr/local/lib64/libabsl_log_globals.a  /usr/local/lib64/libabsl_log_sink.a /usr/local/lib64/libabsl_log_globals.a /usr/local/lib64/libabsl_log_internal_globals.a /usr/local/lib64/libabsl_log_internal_format.a 
+)
 endforeach()

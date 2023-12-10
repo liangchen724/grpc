@@ -28,8 +28,8 @@ class CppImplOf {
  public:
   // Convert the C struct to C++
   static CppType* FromC(CType* c_type) {
-    return reinterpret_cast<CppType*>(c_type);
-  }
+/    return reinterpret_cast<CppType*>(c_type);
+/  }
 
   static const CppType* FromC(const CType* c_type) {
     return reinterpret_cast<const CppType*>(c_type);

@@ -22,6 +22,7 @@ cmake_minimum_required(VERSION 3.8)
 project(HelloWorld C CXX)
 
 include(../cmake/common.cmake)
+set(CMAKE_VERBOSE_MAKEFILE ON)
 
 # Proto file
 get_filename_component(hw_proto "../../protos/helloworld.proto" ABSOLUTE)
@@ -44,6 +45,11 @@ add_custom_command(
 
 # Include generated *.pb.h files
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
+message("111111111 " ${_REFLECTION})
+message("111111111 " ${_GRPC_GRPCPP})
+message("111111111 " ${_PROTOBUF_LIBPROTOBUF})
+
+set(CMAKE_CXX_FLAGS "-g ${CMAKE_CXX_FLAGS}")
 
 # hw_grpc_proto
 add_library(hw_grpc_proto
@@ -54,13 +60,13 @@ add_library(hw_grpc_proto
 target_link_libraries(hw_grpc_proto
   ${_REFLECTION}
   ${_GRPC_GRPCPP}
-  ${_PROTOBUF_LIBPROTOBUF})
+  ${_PROTOBUF_LIBPROTOBUF}
+  /usr/local/lib64/libabsl_log_internal_check_op.a /usr/local/lib64/libabsl_log_internal_nullguard.a /usr/local/lib64/libabsl_log_internal_message.a /usr/local/lib64/libabsl_log_internal_proto.a /usr/local/lib64/libabsl_examine_stack.a /usr/local/lib64/libabsl_log_sink.a /usr/local/lib64/libabsl_log_globals.a /usr/local/lib64/libutf8_validity.a /usr/local/lib64/libabsl_log_internal_conditions.a /usr/local/lib64/libabsl_log_internal_log_sink_set.a /usr/local/lib64/libabsl_log_globals.a  /usr/local/lib64/libabsl_log_sink.a /usr/local/lib64/libabsl_log_globals.a /usr/local/lib64/libabsl_log_internal_globals.a /usr/local/lib64/libabsl_log_internal_format.a 
+  )
 
 # Targets greeter_[async_](client|server)
 foreach(_target
-  greeter_client greeter_server
-  greeter_callback_client greeter_callback_server
-  greeter_async_client greeter_async_client2 greeter_async_server)
+  greeter_async_client  greeter_async_server)
   add_executable(${_target} "${_target}.cc")
   target_link_libraries(${_target}
     hw_grpc_proto
@@ -68,5 +74,7 @@ foreach(_target
     absl::flags_parse
     ${_REFLECTION}
     ${_GRPC_GRPCPP}
-    ${_PROTOBUF_LIBPROTOBUF})
+    ${_PROTOBUF_LIBPROTOBUF}
+    /usr/local/lib64/libabsl_log_internal_check_op.a /usr/local/lib64/libabsl_log_internal_nullguard.a /usr/local/lib64/libabsl_log_internal_message.a /usr/local/lib64/libabsl_log_internal_proto.a /usr/local/lib64/libabsl_examine_stack.a /usr/local/lib64/libabsl_log_sink.a /usr/local/lib64/libabsl_log_globals.a /usr/local/lib64/libutf8_validity.a /usr/local/lib64/libabsl_log_internal_conditions.a /usr/local/lib64/libabsl_log_internal_log_sink_set.a /usr/local/lib64/libabsl_log_globals.a  /usr/local/lib64/libabsl_log_sink.a /usr/local/lib64/libabsl_log_globals.a /usr/local/lib64/libabsl_log_internal_globals.a /usr/local/lib64/libabsl_log_internal_format.a 
+    )
 endforeach()

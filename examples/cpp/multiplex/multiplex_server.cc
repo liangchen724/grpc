@@ -88,7 +88,7 @@ void RunServer(uint16_t port) {
   GreeterServiceImpl greeter;
   RouteGuideImpl route_guide;
 
-  grpc::EnableDefaultHealthCheckService(true);
+  // grpc::EnableDefaultHealthCheckService(true);
   grpc::reflection::InitProtoReflectionServerBuilderPlugin();
   ServerBuilder builder;
   // Listen on the given address without any authentication mechanism.

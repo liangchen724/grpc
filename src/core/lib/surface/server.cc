@@ -1797,7 +1797,7 @@ grpc_server* grpc_server_create(const grpc_channel_args* args, void* reserved) {
 void grpc_server_register_completion_queue(grpc_server* server,
                                            grpc_completion_queue* cq,
                                            void* reserved) {
-  GRPC_API_TRACE(
+   GRPC_API_TRACE(
       "grpc_server_register_completion_queue(server=%p, cq=%p, reserved=%p)", 3,
       (server, cq, reserved));
   GPR_ASSERT(!reserved);

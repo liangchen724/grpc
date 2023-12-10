@@ -1,0 +1,804 @@
+D1015 22:10:28.734443431   38405 exec_ctx.cc:48]                       closure 0x1b46c80 finished
+I1015 22:10:28.734990271   38405 combiner.cc:216]                      C:0x1b450a0 grpc_combiner_continue_exec_ctx contended=1 exec_ctx_ready_to_finish=1 time_to_execute_final_list=0
+I1015 22:10:28.735008031   38405 combiner.cc:186]                      C:0x1b450a0 queue_offload
+I1015 22:10:28.735043736   38405 server.cc:1894]                       grpc_server_request_registered_call(server=0x1b23160, registered_method=0x1b174c0, call=0x1b1d980, deadline=0x1b1fb70, request_metadata=0x1b1fba8, optional_payload=0x1b1dac8, cq_bound_to_call=0x1b24230, cq_for_notification=0x1b24230, tag=0x1b1d940)
+I1015 22:10:28.735087803   38405 call.cc:3692]                         grpc_call_start_batch(call=0x7fffd0020870, ops=0x7fffffffdff0, nops=3, tag=0x1b20838, reserved=(nil))
+I1015 22:10:28.735101877   38405 call.cc:1553]                         ops[0]: SEND_INITIAL_METADATA(nil)
+I1015 22:10:28.735112579   38405 call.cc:1553]                         ops[1]: SEND_MESSAGE ptr=0x1b46d40
+I1015 22:10:28.735124000   38405 call.cc:1553]                         ops[2]: SEND_STATUS_FROM_SERVER status=0 details=(null)(nil)
+D1015 22:10:28.735143122   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF completion
+I1015 22:10:28.735152116   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 4 -> 5 completion
+D1015 22:10:28.735184117   38405 call.cc:1906]                         BATCH:0x1b4a730 START:{kSends} BATCH: SEND_INITIAL_METADATA{} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0} (tag:0x1b20838)
+I1015 22:10:28.735196676   38405 call_combiner.cc:118]                 ==> CallCombiner::Start() [0x7fffd00208f0] closure=0x1b4a7d0|created=/home/lc/lcd/study/grpc/src/core/lib/surface/call.cc:1003 [/home/lc/lcd/study/grpc/src/core/lib/surface/call.cc:1005: executing batch] error=OK
+I1015 22:10:28.735206174   38405 call_combiner.cc:127]                   size: 0 -> 1
+I1015 22:10:28.735213285   38405 call_combiner.cc:132]                   EXECUTING IMMEDIATELY
+D1015 22:10:28.735222374   38405 exec_ctx.cc:36]                       running closure 0x1b4a7d0: created [/home/lc/lcd/study/grpc/src/core/lib/surface/call.cc:1003]: scheduled [/home/lc/lcd/study/grpc/src/core/lib/iomgr/call_combiner.cc:101]
+I1015 22:10:28.735240370   38405 call.cc:998]                          OP[server:0x7fffd0021870]:  SEND_INITIAL_METADATA{} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+I1015 22:10:28.735255988   38405 channel_stack.cc:256]                 OP[server.trace:0x7fffd0021888]:  SEND_INITIAL_METADATA{} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+I1015 22:10:28.735284357   38405 channel_stack.cc:256]                 OP[server-auth:0x7fffd00218a0]:  SEND_INITIAL_METADATA{} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+D1015 22:10:28.735295407   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF flusher
+I1015 22:10:28.735304010   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 5 -> 6 flusher
+I1015 22:10:28.735317337   38405 promise_based_filter.cc:2039]         SVR[server-auth:0x7fffd00218a0] StartBatch: have_promise=true recv_initial_state=COMPLETE send_trailing_state=INITIAL captured={}
+I1015 22:10:28.735334677   38405 promise_based_filter.cc:2417]         SVR[server-auth:0x7fffd00218a0]: WakeInsideCombiner have_promise=true recv_initial_state=COMPLETE send_trailing_state=QUEUED captured={send_trailing_metadata}
+I1015 22:10:28.735345257   38405 promise_based_filter.cc:2301]         SVR[server-auth:0x7fffd00218a0] PollTrailingMetadata: QUEUED
+I1015 22:10:28.735361640   38405 promise_based_filter.cc:2493]         SVR[server-auth:0x7fffd00218a0]: WakeInsideCombiner poll=grpc-status: 0; send_initial_metadata=null send_trailing_metadata=QUEUED
+I1015 22:10:28.735380835   38405 promise_based_filter.cc:301]          FLUSHER:forward batch:  SEND_INITIAL_METADATA{} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+I1015 22:10:28.735396838   38405 channel_stack.cc:256]                 OP[server-auth.trace:0x7fffd00218b8]:  SEND_INITIAL_METADATA{} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+I1015 22:10:28.735412304   38405 channel_stack.cc:256]                 OP[message_size:0x7fffd00218d0]:  SEND_INITIAL_METADATA{} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+D1015 22:10:28.735421485   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF flusher
+I1015 22:10:28.735430169   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 6 -> 7 flusher
+I1015 22:10:28.735441650   38405 promise_based_filter.cc:2039]         SVR[message_size:0x7fffd00218d0] StartBatch: have_promise=true recv_initial_state=COMPLETE send_trailing_state=INITIAL captured={}
+I1015 22:10:28.735451374   38405 promise_based_filter.cc:342]          SVR[message_size:0x7fffd00218d0] SendMessage.StartOp st=IDLE
+I1015 22:10:28.735465164   38405 promise_based_filter.cc:2417]         SVR[message_size:0x7fffd00218d0]: WakeInsideCombiner have_promise=true recv_initial_state=COMPLETE send_trailing_state=QUEUED_BEHIND_SEND_MESSAGE captured={send_message,send_trailing_metadata}
+I1015 22:10:28.735475498   38405 promise_based_filter.cc:492]          SVR[message_size:0x7fffd00218d0] SendMessage.WakeInsideCombiner st=GOT_BATCH
+D1015 22:10:28.735497019   38405 pipe.h:122]                           PBF_SERVER[0x7fffd0021da0]: [message_size]  PIPE[0x7fffd0023110]: IncrementRefCount refs=2 value_state=Empty on_empty={} on_full={} on_closed={}
+D1015 22:10:28.735515345   38405 pipe.h:122]                           PBF_SERVER[0x7fffd0021da0]: [message_size]  PIPE[0x7fffd0023110]: IncrementRefCount refs=3 value_state=Empty on_empty={} on_full={} on_closed={}
+D1015 22:10:28.735543850   38405 pipe.h:122]                           PBF_SERVER[0x7fffd0021da0]: [message_size]  PIPE[0x7fffd0023110]: IncrementRefCount refs=4 value_state=Empty on_empty={} on_full={} on_closed={}
+I1015 22:10:28.735559977   38405 pipe.h:152]                           PBF_SERVER[0x7fffd0021da0]: [message_size]  PIPE[0x7fffd0023110]: Push refs=5 value_state=Empty on_empty={} on_full={} on_closed={}
+I1015 22:10:28.735574894   38405 pipe.h:176]                           PBF_SERVER[0x7fffd0021da0]: [message_size]  PIPE[0x7fffd0023110]: PollAck refs=5 value_state=Ready on_empty={} on_full={} on_closed={}
+D1015 22:10:28.735583617   38405 seq_state.h:142]                      seq[0x7fffd0023198]: begin poll step 1/2
+I1015 22:10:28.735598799   38405 pipe.h:204]                           PBF_SERVER[0x7fffd0021da0]: [message_size]  PIPE[0x7fffd0023110]: Next refs=5 value_state=Ready on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.735609026   38405 seq_state.h:148]                      seq[0x7fffd0023198]: poll step 1/2 gets ready
+D1015 22:10:28.735623204   38405 pipe.h:137]                           PBF_SERVER[0x7fffd0021da0]: [message_size]  PIPE[0x7fffd0023110]: Unref refs=5 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.735638839   38405 pipe.h:122]                           PBF_SERVER[0x7fffd0021da0]: [message_size]  PIPE[0x7fffd0023110]: IncrementRefCount refs=4 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.735649493   38405 interceptor_list.h:92]                InterceptorList::RunPromise[0x7fffffffcc30]: create immediate
+D1015 22:10:28.741433407   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffcc70]: move from 0x7fffffffcc30
+D1015 22:10:28.741469242   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffcbe0]: move from 0x7fffffffcc70
+D1015 22:10:28.741483188   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffccc0]: move from 0x7fffffffcbe0
+D1015 22:10:28.741496588   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffcbe0]: destroy
+D1015 22:10:28.741509446   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffcc70]: destroy
+D1015 22:10:28.741538614   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffcc30]: destroy
+D1015 22:10:28.741552396   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffcd90]: move from 0x7fffffffccc0
+D1015 22:10:28.741565214   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffccc0]: destroy
+D1015 22:10:28.741577962   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffced8]: move from 0x7fffffffcd90
+D1015 22:10:28.741590947   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffcd90]: destroy
+D1015 22:10:28.741605457   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffcff8]: move from 0x7fffffffced8
+D1015 22:10:28.741618184   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffced8]: destroy
+D1015 22:10:28.741653495   38405 pipe.h:137]                           PBF_SERVER[0x7fffd0021da0]: [message_size]  PIPE[0x7fffd0023110]: Unref refs=5 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.741665350   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffd00231a0]: move from 0x7fffffffcff8
+D1015 22:10:28.741677744   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffcff8]: destroy
+D1015 22:10:28.741690629   38405 seq_state.h:169]                      seq[0x7fffd0023198]: begin poll step 2/2
+D1015 22:10:28.741705803   38405 interceptor_list.h:145]               InterceptorList::RunPromise[0x7fffd00231a0]: Result:has_value:1
+D1015 22:10:28.741719876   38405 seq_state.h:173]                      seq[0x7fffd0023198]: poll step 2/2 gets ready
+I1015 22:10:28.741735133   38405 promise_based_filter.cc:540]          SVR[message_size:0x7fffd00218d0] SendMessage.WakeInsideCombiner next complete, result.has_value=true
+D1015 22:10:28.741749787   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffd00231a0]: destroy
+I1015 22:10:28.741770625   38405 pipe.h:176]                           PBF_SERVER[0x7fffd0021da0]: [message_size]  PIPE[0x7fffd0023110]: PollAck refs=4 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+I1015 22:10:28.741789299   38405 pipe.h:294]                           PBF_SERVER[0x7fffd0021da0]: [message_size]  PIPE[0x7fffd0023110]: AckNext refs=4 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.741807094   38405 pipe.h:137]                           PBF_SERVER[0x7fffd0021da0]: [message_size]  PIPE[0x7fffd0023110]: Unref refs=4 value_state=Acked on_empty={} on_full={} on_closed={}
+D1015 22:10:28.741827995   38405 promise_based_filter.cc:2463]         SVR[message_size:0x7fffd00218d0]: After send_message WakeInsideCombiner have_promise=true recv_initial_state=COMPLETE send_trailing_state=QUEUED_BEHIND_SEND_MESSAGE captured={send_trailing_metadata} is_idle=true is_forwarded=true
+I1015 22:10:28.770820245   38405 promise_based_filter.cc:802]          SVR[message_size:0x7fffd00218d0] ReceiveMessage.WakeInsideCombiner st=IDLE push?=no next?=no allow_push_to_pipe=yes
+I1015 22:10:28.770873940   38405 latch.h:70]                           PBF_SERVER[0x7fffd0021da0]: [message_size]  LATCH[0x140736683127616]: Wait has_value:false waiter:{0}
+I1015 22:10:28.770887713   38405 promise_based_filter.cc:2301]         SVR[message_size:0x7fffd00218d0] PollTrailingMetadata: QUEUED
+I1015 22:10:28.770918996   38405 promise_based_filter.cc:2493]         SVR[message_size:0x7fffd00218d0]: WakeInsideCombiner poll=grpc-status: 0; send_initial_metadata=null send_trailing_metadata=QUEUED
+I1015 22:10:28.770935418   38405 promise_based_filter.cc:449]          SVR[message_size:0x7fffd00218d0] SendMessage.Done st=FORWARDED_BATCH md=grpc-status: 0
+I1015 22:10:28.770949484   38405 promise_based_filter.cc:743]          SVR[message_size:0x7fffd00218d0] ReceiveMessage.Done st=IDLE md=grpc-status: 0
+D1015 22:10:28.770962651   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF re-poll
+I1015 22:10:28.770973151   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 7 -> 8 re-poll
+I1015 22:10:28.770993022   38405 call_combiner.cc:118]                 ==> CallCombiner::Start() [0x7fffd00208f0] closure=0x1b44f00|created=/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:1940 [/home/lc/lcd/study/grpc/src/core/lib/iomgr/call_combiner.h:189: re-poll] error=OK
+I1015 22:10:28.771002700   38405 call_combiner.cc:127]                   size: 1 -> 2
+I1015 22:10:28.771010265   38405 call_combiner.cc:138]                   QUEUING
+I1015 22:10:28.771032608   38405 promise_based_filter.cc:301]          FLUSHER:forward batch:  SEND_INITIAL_METADATA{} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+I1015 22:10:28.771050532   38405 channel_stack.cc:256]                 OP[message_size.trace:0x7fffd00218e8]:  SEND_INITIAL_METADATA{} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+I1015 22:10:28.771067241   38405 channel_stack.cc:256]                 OP[deadline:0x7fffd0021900]:  SEND_INITIAL_METADATA{} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+I1015 22:10:28.771084649   38405 channel_stack.cc:256]                 OP[deadline.trace:0x7fffd0021918]:  SEND_INITIAL_METADATA{} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+I1015 22:10:28.771101916   38405 channel_stack.cc:256]                 OP[http-server:0x7fffd0021930]:  SEND_INITIAL_METADATA{} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+I1015 22:10:28.734372150   38436 ev_epoll1_linux.cc:771]               PS:0x1b1a8d8 BEGIN_REORG:0x7fffe67fb9e0 kick_state=UNKICKED is_reassigning=1
+I1015 22:10:28.735672246   38432 combiner.cc:216]                      C:0x1b450a0 grpc_combiner_continue_exec_ctx contended=0 exec_ctx_ready_to_finish=0 time_to_execute_final_list=0
+I1015 22:10:28.771138003   38436 ev_epoll1_linux.cc:841]               PS:0x1b1a8d8 BEGIN_DONE:0x7fffe67fb9e0 kick_state=DESIGNATED_POLLER shutdown=0 kicked_without_poller: 0
+I1015 22:10:28.771151851   38432 combiner.cc:253]                      C:0x1b450a0 maybe_finish_one n=0x1b46c10
+I1015 22:10:28.771164448   38432 chttp2_transport.cc:1422]             perform_stream_op_locked[s=0x7fffd00227e0; op=0x1b46bf0]:  RECV_TRAILING_METADATA; on_complete = (nil)
+I1015 22:10:28.771172118   38435 ev_epoll1_linux.cc:992]                .. remove worker
+D1015 22:10:28.771115265   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF flusher
+I1015 22:10:28.771187425   38435 ev_posix.cc:251]                      (polling-api) pollset_work(0x1b1a8d8, 28726) end
+D1015 22:10:28.771175837   38432 chttp2_transport.cc:2156]             maybe_complete_recv_trailing_metadata cli=0 s=0x7fffd00227e0 closure=0x7fffd0022778 read_closed=1 write_closed=0 0
+D1015 22:10:28.771202643   38432 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF perform_stream_op
+I1015 22:10:28.771205605   38435 ev_posix.cc:247]                      (polling-api) pollset_work(0x1b1a8d8, 28726) begin
+I1015 22:10:28.771212210   38432 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 9 -> 8 perform_stream_op
+I1015 22:10:28.771216182   38435 ev_epoll1_linux.cc:752]               PS:0x1b1a8d8 BEGIN_STARTS:0x7fffe6ffc9e0
+I1015 22:10:28.771222463   38432 combiner.cc:293]                      C:0x1b450a0 finish old_state=5
+I1015 22:10:28.771226062   38435 ev_epoll1_linux.cc:824]               PS:0x1b1a8d8 BEGIN_WAIT:0x7fffe6ffc9e0 kick_state=UNKICKED shutdown=0
+I1015 22:10:28.771232870   38432 combiner.cc:216]                      C:0x1b450a0 grpc_combiner_continue_exec_ctx contended=0 exec_ctx_ready_to_finish=0 time_to_execute_final_list=0
+I1015 22:10:28.771241160   38432 combiner.cc:253]                      C:0x1b450a0 maybe_finish_one n=0x1b48ca0
+I1015 22:10:28.771255297   38432 parsing.cc:337]                       INCOMING[0x1b48970]: PING:ACK len:8 id:0x00000000
+D1015 22:10:28.771265578   38432 parsing.cc:888]                       INCOMING[0x1b48970;(nil)]: Parse 8b last frame fragment with ping
+I1015 22:10:28.771287422   38432 frame_ping.cc:100]                    SERVER[0x1b48970]: received ping ack ea2243f7a0f962e
+I1015 22:10:28.771324062   38432 ref_counted.h:164]                    chttp2_refcount:0x1b48978 unref 8 -> 7
+I1015 22:10:28.771346666   38432 ref_counted.h:164]                    chttp2_refcount:0x1b48978 unref 7 -> 6
+I1015 22:10:28.771357614   38432 chttp2_transport.cc:3051]             ipv6:%5B::1%5D:34162: Keepalive ping cancelled. Resetting timer.
+I1015 22:10:28.771365985   38432 ref_counted.h:74]                     chttp2_refcount:0x1b48978 ref 6 -> 7
+D1015 22:10:28.771385882   38432 posix_engine.cc:491]                  (event_engine) PosixEventEngine:0x1b21ea0 scheduling callback:{28592256,42}
+I1015 22:10:28.771403177   38432 ref_counted.h:85]                     tcp:0x1b472a8 /home/lc/lcd/study/grpc/src/core/lib/iomgr/tcp_posix.cc:1157 ref 3 -> 4 read
+I1015 22:10:28.771411446   38432 tcp_posix.cc:679]                     TCP:0x1b47280 notify_on_read
+D1015 22:10:28.771420209   38432 lockfree_event.cc:100]                LockfreeEvent::NotifyOn: 0x1b480d8 curr=0 closure=0x1b47430
+I1015 22:10:28.771429657   38432 combiner.cc:293]                      C:0x1b450a0 finish old_state=3
+D1015 22:10:28.771438553   38432 exec_ctx.cc:36]                       running closure 0x1b49810: created [/home/lc/lcd/study/grpc/src/core/ext/transport/chttp2/transport/chttp2_transport.cc:260]: scheduled [/home/lc/lcd/study/grpc/src/core/ext/transport/chttp2/transport/chttp2_transport.cc:1724]
+I1015 22:10:28.771449351   38432 combiner.cc:142]                      C:0x1b450a0 grpc_combiner_execute c=0x1b49810 last=1
+D1015 22:10:28.771462035   38432 exec_ctx.cc:48]                       closure 0x1b49810 finished
+I1015 22:10:28.771470641   38432 combiner.cc:216]                      C:0x1b450a0 grpc_combiner_continue_exec_ctx contended=0 exec_ctx_ready_to_finish=0 time_to_execute_final_list=0
+I1015 22:10:28.771479732   38432 combiner.cc:253]                      C:0x1b450a0 maybe_finish_one n=0x1b49810
+I1015 22:10:28.771489446   38432 chttp2_transport.cc:2883]             ipv6:%5B::1%5D:34162: Complete BDP ping err=OK
+I1015 22:10:28.771504087   38432 bdp_estimator.cc:50]                  bdp[ipv6:%5B::1%5D:34162]:complete acc=12 est=65536 dt=0.037831 bw=0.002538Mbs bw_est=0.000000Mbs
+I1015 22:10:28.771560090   38432 ref_counted.h:74]                     chttp2_refcount:0x1b48978 ref 7 -> 8
+D1015 22:10:28.771579111   38432 posix_engine.cc:491]                  (event_engine) PosixEventEngine:0x1b21ea0 scheduling callback:{28589824,43}
+I1015 22:10:28.771604544   38432 ref_counted.h:164]                    chttp2_refcount:0x1b48978 unref 8 -> 7
+I1015 22:10:28.771614082   38432 combiner.cc:293]                      C:0x1b450a0 finish old_state=3
+I1015 22:10:28.771189462   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 8 -> 9 flusher
+I1015 22:10:28.771664141   38405 promise_based_filter.cc:2039]         SVR[http-server:0x7fffd0021930] StartBatch: have_promise=true recv_initial_state=COMPLETE send_trailing_state=INITIAL captured={} send_initial_metadata=GOT_PIPE
+I1015 22:10:28.771804322   38405 promise_based_filter.cc:2417]         SVR[http-server:0x7fffd0021930]: WakeInsideCombiner have_promise=true recv_initial_state=COMPLETE send_trailing_state=QUEUED captured={send_trailing_metadata} send_initial_metadata=QUEUED_AND_GOT_PIPE
+D1015 22:10:28.771832919   38405 pipe.h:122]                           PBF_SERVER[0x7fffd0021ff0]: [http-server]  PIPE[0x7fffd00233c0]: IncrementRefCount refs=2 value_state=Empty on_empty={} on_full={} on_closed={}
+D1015 22:10:28.771854309   38405 pipe.h:122]                           PBF_SERVER[0x7fffd0021ff0]: [http-server]  PIPE[0x7fffd00233c0]: IncrementRefCount refs=3 value_state=Empty on_empty={} on_full={} on_closed={}
+D1015 22:10:28.771868767   38405 pipe.h:122]                           PBF_SERVER[0x7fffd0021ff0]: [http-server]  PIPE[0x7fffd00233c0]: IncrementRefCount refs=4 value_state=Empty on_empty={} on_full={} on_closed={}
+I1015 22:10:28.771883466   38405 pipe.h:152]                           PBF_SERVER[0x7fffd0021ff0]: [http-server]  PIPE[0x7fffd00233c0]: Push refs=5 value_state=Empty on_empty={} on_full={} on_closed={}
+I1015 22:10:28.771896215   38405 pipe.h:176]                           PBF_SERVER[0x7fffd0021ff0]: [http-server]  PIPE[0x7fffd00233c0]: PollAck refs=5 value_state=Ready on_empty={} on_full={} on_closed={}
+I1015 22:10:28.771903162   38405 promise_based_filter.cc:2445]         SVR[http-server:0x7fffd0021930]: WakeInsideCombiner: metadata_push pending
+I1015 22:10:28.771910370   38405 promise_based_filter.cc:2301]         SVR[http-server:0x7fffd0021930] PollTrailingMetadata: QUEUED
+I1015 22:10:28.771928083   38405 promise_based_filter.cc:2493]         SVR[http-server:0x7fffd0021930]: WakeInsideCombiner poll=grpc-status: 0; send_initial_metadata=QUEUED_AND_PUSHED_TO_PIPE send_trailing_metadata=QUEUED
+D1015 22:10:28.771934481   38405 seq_state.h:142]                      seq[0x7fffd0023448]: begin poll step 1/2
+I1015 22:10:28.771950642   38405 pipe.h:204]                           PBF_SERVER[0x7fffd0021ff0]: [http-server]  PIPE[0x7fffd00233c0]: Next refs=5 value_state=Ready on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.771958324   38405 seq_state.h:148]                      seq[0x7fffd0023448]: poll step 1/2 gets ready
+D1015 22:10:28.771968148   38405 pipe.h:137]                           PBF_SERVER[0x7fffd0021ff0]: [http-server]  PIPE[0x7fffd00233c0]: Unref refs=5 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.771979426   38405 pipe.h:122]                           PBF_SERVER[0x7fffd0021ff0]: [http-server]  PIPE[0x7fffd00233c0]: IncrementRefCount refs=4 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.771990892   38405 interceptor_list.h:103]               InterceptorList::RunPromise[0x7fffffffca00]: create async; mem=0x1b4a5c0
+D1015 22:10:28.771997060   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffca40]: move from 0x7fffffffca00
+D1015 22:10:28.772003182   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffc9b0]: move from 0x7fffffffca40
+D1015 22:10:28.772008585   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffca90]: move from 0x7fffffffc9b0
+D1015 22:10:28.772014321   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffc9b0]: destroy
+D1015 22:10:28.772019908   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffca40]: destroy
+D1015 22:10:28.772025107   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffca00]: destroy
+D1015 22:10:28.772030565   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffcb60]: move from 0x7fffffffca90
+D1015 22:10:28.772036024   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffca90]: destroy
+D1015 22:10:28.772041285   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffcca8]: move from 0x7fffffffcb60
+D1015 22:10:28.772046676   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffcb60]: destroy
+D1015 22:10:28.772052131   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffcdc8]: move from 0x7fffffffcca8
+D1015 22:10:28.772057555   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffcca8]: destroy
+D1015 22:10:28.772068180   38405 pipe.h:137]                           PBF_SERVER[0x7fffd0021ff0]: [http-server]  PIPE[0x7fffd00233c0]: Unref refs=5 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.772074052   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffd0023450]: move from 0x7fffffffcdc8
+D1015 22:10:28.772079461   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffcdc8]: destroy
+D1015 22:10:28.772084936   38405 seq_state.h:169]                      seq[0x7fffd0023448]: begin poll step 2/2
+D1015 22:10:28.772091716   38405 interceptor_list.h:145]               InterceptorList::RunPromise[0x7fffd0023450]: Running:<unknown>:-1
+I1015 22:10:28.772098432   38405 http_server_filter.cc:139]            PBF_SERVER[0x7fffd0021ff0]: [http-server] [http-server] Write metadata
+D1015 22:10:28.772109162   38405 interceptor_list.h:159]               InterceptorList::RunPromise[0x7fffd0023450]: Running:END
+D1015 22:10:28.772116069   38405 seq_state.h:173]                      seq[0x7fffd0023448]: poll step 2/2 gets ready
+I1015 22:10:28.772130236   38405 promise_based_filter.cc:2512]         SVR[http-server:0x7fffd0021930]: WakeInsideCombiner send_initial_metadata poll=:status: 200, content-type: application/grpc
+I1015 22:10:28.772142043   38405 pipe.h:294]                           PBF_SERVER[0x7fffd0021ff0]: [http-server]  PIPE[0x7fffd00233c0]: AckNext refs=4 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.772151754   38405 pipe.h:137]                           PBF_SERVER[0x7fffd0021ff0]: [http-server]  PIPE[0x7fffd00233c0]: Unref refs=4 value_state=Acked on_empty={} on_full={} on_closed={}
+D1015 22:10:28.772160535   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF re-poll
+I1015 22:10:28.772167020   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 8 -> 9 re-poll
+I1015 22:10:28.772177674   38405 call_combiner.cc:118]                 ==> CallCombiner::Start() [0x7fffd00208f0] closure=0x1b4ae20|created=/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:1940 [/home/lc/lcd/study/grpc/src/core/lib/iomgr/call_combiner.h:189: re-poll] error=OK
+I1015 22:10:28.772183709   38405 call_combiner.cc:127]                   size: 2 -> 3
+I1015 22:10:28.772188690   38405 call_combiner.cc:138]                   QUEUING
+I1015 22:10:28.772206463   38405 promise_based_filter.cc:301]          FLUSHER:forward batch:  SEND_INITIAL_METADATA{:status: 200, content-type: application/grpc} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+I1015 22:10:28.772221446   38405 channel_stack.cc:256]                 OP[http-server.trace:0x7fffd0021948]:  SEND_INITIAL_METADATA{:status: 200, content-type: application/grpc} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+I1015 22:10:28.772235204   38405 channel_stack.cc:256]                 OP[compression:0x7fffd0021960]:  SEND_INITIAL_METADATA{:status: 200, content-type: application/grpc} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+D1015 22:10:28.772310435   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF flusher
+I1015 22:10:28.772322798   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 9 -> 10 flusher
+I1015 22:10:28.772336914   38405 promise_based_filter.cc:2039]         SVR[compression:0x7fffd0021960] StartBatch: have_promise=true recv_initial_state=COMPLETE send_trailing_state=INITIAL captured={} send_initial_metadata=GOT_PIPE
+I1015 22:10:28.772347941   38405 promise_based_filter.cc:342]          SVR[compression:0x7fffd0021960] SendMessage.StartOp st=IDLE
+I1015 22:10:28.772365370   38405 promise_based_filter.cc:2417]         SVR[compression:0x7fffd0021960]: WakeInsideCombiner have_promise=true recv_initial_state=COMPLETE send_trailing_state=QUEUED_BEHIND_SEND_MESSAGE captured={send_message,send_trailing_metadata} send_initial_metadata=QUEUED_AND_GOT_PIPE
+D1015 22:10:28.772384140   38405 pipe.h:122]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd00234b0]: IncrementRefCount refs=2 value_state=Empty on_empty={} on_full={} on_closed={}
+D1015 22:10:28.772398895   38405 pipe.h:122]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd00234b0]: IncrementRefCount refs=3 value_state=Empty on_empty={} on_full={} on_closed={}
+D1015 22:10:28.772412485   38405 pipe.h:122]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd00234b0]: IncrementRefCount refs=4 value_state=Empty on_empty={} on_full={} on_closed={}
+I1015 22:10:28.772426726   38405 pipe.h:152]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd00234b0]: Push refs=5 value_state=Empty on_empty={} on_full={} on_closed={}
+I1015 22:10:28.772439762   38405 pipe.h:176]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd00234b0]: PollAck refs=5 value_state=Ready on_empty={} on_full={} on_closed={}
+I1015 22:10:28.772447893   38405 promise_based_filter.cc:2445]         SVR[compression:0x7fffd0021960]: WakeInsideCombiner: metadata_push pending
+I1015 22:10:28.772455887   38405 promise_based_filter.cc:492]          SVR[compression:0x7fffd0021960] SendMessage.WakeInsideCombiner st=GOT_BATCH
+D1015 22:10:28.772469990   38405 promise_based_filter.cc:2463]         SVR[compression:0x7fffd0021960]: After send_message WakeInsideCombiner have_promise=true recv_initial_state=COMPLETE send_trailing_state=QUEUED_BEHIND_SEND_MESSAGE captured={send_message,send_trailing_metadata} send_initial_metadata=QUEUED_AND_PUSHED_TO_PIPE is_idle=false is_forwarded=false
+I1015 22:10:28.772480887   38405 promise_based_filter.cc:802]          SVR[compression:0x7fffd0021960] ReceiveMessage.WakeInsideCombiner st=IDLE push?=no next?=no allow_push_to_pipe=yes
+I1015 22:10:28.772496108   38405 latch.h:70]                           PBF_SERVER[0x7fffd0022170]: [compression]  LATCH[0x140736683093120]: Wait has_value:false waiter:{0}
+I1015 22:10:28.772504978   38405 promise_based_filter.cc:2301]         SVR[compression:0x7fffd0021960] PollTrailingMetadata: QUEUED_BEHIND_SEND_MESSAGE
+I1015 22:10:28.772515225   38405 promise_based_filter.cc:2493]         SVR[compression:0x7fffd0021960]: WakeInsideCombiner poll=<<pending>>; send_initial_metadata=QUEUED_AND_PUSHED_TO_PIPE send_trailing_metadata=QUEUED_BEHIND_SEND_MESSAGE
+D1015 22:10:28.772541832   38405 seq_state.h:142]                      seq[0x7fffd00237f8]: begin poll step 1/2
+I1015 22:10:28.772554549   38405 pipe.h:204]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd00234b0]: Next refs=5 value_state=Ready on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.772561873   38405 seq_state.h:148]                      seq[0x7fffd00237f8]: poll step 1/2 gets ready
+D1015 22:10:28.772571520   38405 pipe.h:137]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd00234b0]: Unref refs=5 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.772582314   38405 pipe.h:122]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd00234b0]: IncrementRefCount refs=4 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.772592320   38405 interceptor_list.h:103]               InterceptorList::RunPromise[0x7fffffffc640]: create async; mem=0x1b48670
+D1015 22:10:28.772598132   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffc680]: move from 0x7fffffffc640
+D1015 22:10:28.772603873   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffc5f0]: move from 0x7fffffffc680
+D1015 22:10:28.772609296   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffc6d0]: move from 0x7fffffffc5f0
+D1015 22:10:28.772614927   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffc5f0]: destroy
+D1015 22:10:28.772620219   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffc680]: destroy
+D1015 22:10:28.772625354   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffc640]: destroy
+D1015 22:10:28.772630609   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffc7a0]: move from 0x7fffffffc6d0
+D1015 22:10:28.772635777   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffc6d0]: destroy
+D1015 22:10:28.772640949   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffc8e8]: move from 0x7fffffffc7a0
+D1015 22:10:28.772646333   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffc7a0]: destroy
+D1015 22:10:28.772651697   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffca08]: move from 0x7fffffffc8e8
+D1015 22:10:28.772657058   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffc8e8]: destroy
+D1015 22:10:28.772667270   38405 pipe.h:137]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd00234b0]: Unref refs=5 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.772673166   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffd0023800]: move from 0x7fffffffca08
+D1015 22:10:28.772678671   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffca08]: destroy
+D1015 22:10:28.772684120   38405 seq_state.h:169]                      seq[0x7fffd00237f8]: begin poll step 2/2
+D1015 22:10:28.772690860   38405 interceptor_list.h:145]               InterceptorList::RunPromise[0x7fffd0023800]: Running:<unknown>:-1
+I1015 22:10:28.772698153   38405 compression_filter.cc:303]            PBF_SERVER[0x7fffd0022170]: [compression] [compression] Write metadata
+D1015 22:10:28.772707830   38405 interceptor_list.h:159]               InterceptorList::RunPromise[0x7fffd0023800]: Running:END
+D1015 22:10:28.772714483   38405 seq_state.h:173]                      seq[0x7fffd00237f8]: poll step 2/2 gets ready
+I1015 22:10:28.772731109   38405 promise_based_filter.cc:2512]         SVR[compression:0x7fffd0021960]: WakeInsideCombiner send_initial_metadata poll=:status: 200, grpc-accept-encoding: identity, deflate, gzip, content-type: application/grpc
+I1015 22:10:28.772743112   38405 pipe.h:294]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd00234b0]: AckNext refs=4 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.772752679   38405 pipe.h:137]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd00234b0]: Unref refs=4 value_state=Acked on_empty={} on_full={} on_closed={}
+D1015 22:10:28.772845663   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF re-poll
+I1015 22:10:28.772859643   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 10 -> 11 re-poll
+I1015 22:10:28.772872854   38405 call_combiner.h:172]                  CallCombinerClosureList executing closure while already holding call_combiner 0x7fffd00208f0: closure=0x1b4a970|created=/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:1940 error=OK reason=re-poll
+D1015 22:10:28.772883916   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF flusher
+I1015 22:10:28.772892439   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 11 -> 10 flusher
+D1015 22:10:28.772901183   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF flusher
+I1015 22:10:28.772908777   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 10 -> 9 flusher
+D1015 22:10:28.772917036   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF flusher
+I1015 22:10:28.772924238   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 9 -> 8 flusher
+D1015 22:10:28.772931892   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF flusher
+I1015 22:10:28.772938875   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 8 -> 7 flusher
+D1015 22:10:28.772947501   38405 exec_ctx.cc:48]                       closure 0x1b4a7d0 finished
+D1015 22:10:28.772955751   38405 exec_ctx.cc:36]                       running closure 0x1b4a970: created [/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:1940]: scheduled [/home/lc/lcd/study/grpc/src/core/lib/iomgr/call_combiner.h:179]
+D1015 22:10:28.772965548   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF flusher
+I1015 22:10:28.772974192   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 7 -> 8 flusher
+I1015 22:10:28.772990593   38405 promise_based_filter.cc:2417]         SVR[compression:0x7fffd0021960]: WakeInsideCombiner have_promise=true recv_initial_state=COMPLETE send_trailing_state=QUEUED_BEHIND_SEND_MESSAGE captured={send_message,send_trailing_metadata} send_initial_metadata=FORWARDED
+I1015 22:10:28.773003508   38405 pipe.h:176]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd00234b0]: PollAck refs=3 value_state=Acked on_empty={} on_full={} on_closed={}
+I1015 22:10:28.773010519   38405 promise_based_filter.cc:2440]         SVR[compression:0x7fffd0021960]: WakeInsideCombiner: metadata_push done
+D1015 22:10:28.773020192   38405 pipe.h:137]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd00234b0]: Unref refs=3 value_state=Empty on_empty={} on_full={} on_closed={}
+I1015 22:10:28.773026903   38405 promise_based_filter.cc:492]          SVR[compression:0x7fffd0021960] SendMessage.WakeInsideCombiner st=GOT_BATCH
+D1015 22:10:28.773041100   38405 pipe.h:122]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd0023520]: IncrementRefCount refs=2 value_state=Empty on_empty={} on_full={} on_closed={}
+D1015 22:10:28.773053911   38405 pipe.h:122]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd0023520]: IncrementRefCount refs=3 value_state=Empty on_empty={} on_full={} on_closed={}
+D1015 22:10:28.773063127   38405 pipe.h:122]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd0023520]: IncrementRefCount refs=4 value_state=Empty on_empty={} on_full={} on_closed={}
+I1015 22:10:28.773198763   38405 pipe.h:152]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd0023520]: Push refs=5 value_state=Empty on_empty={} on_full={} on_closed={}
+I1015 22:10:28.773217338   38405 pipe.h:176]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd0023520]: PollAck refs=5 value_state=Ready on_empty={} on_full={} on_closed={}
+D1015 22:10:28.773226755   38405 seq_state.h:142]                      seq[0x7fffd00235a8]: begin poll step 1/2
+I1015 22:10:28.773243125   38405 pipe.h:204]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd0023520]: Next refs=5 value_state=Ready on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.773253418   38405 seq_state.h:148]                      seq[0x7fffd00235a8]: poll step 1/2 gets ready
+D1015 22:10:28.773266830   38405 pipe.h:137]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd0023520]: Unref refs=5 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.773296699   38405 pipe.h:122]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd0023520]: IncrementRefCount refs=4 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.773307534   38405 interceptor_list.h:103]               InterceptorList::RunPromise[0x7fffffffd290]: create async; mem=0x1b1db30
+D1015 22:10:28.773313195   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffd2d0]: move from 0x7fffffffd290
+D1015 22:10:28.773319369   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffd240]: move from 0x7fffffffd2d0
+D1015 22:10:28.773324743   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffd320]: move from 0x7fffffffd240
+D1015 22:10:28.773330121   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffd240]: destroy
+D1015 22:10:28.773335161   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffd2d0]: destroy
+D1015 22:10:28.773340195   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffd290]: destroy
+D1015 22:10:28.773345401   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffd3f0]: move from 0x7fffffffd320
+D1015 22:10:28.773350615   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffd320]: destroy
+D1015 22:10:28.773355671   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffd538]: move from 0x7fffffffd3f0
+D1015 22:10:28.773361027   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffd3f0]: destroy
+D1015 22:10:28.773366521   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffd658]: move from 0x7fffffffd538
+D1015 22:10:28.773371717   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffd538]: destroy
+D1015 22:10:28.773382168   38405 pipe.h:137]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd0023520]: Unref refs=5 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.773388293   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffd00235b0]: move from 0x7fffffffd658
+D1015 22:10:28.773393712   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffd658]: destroy
+D1015 22:10:28.773399038   38405 seq_state.h:169]                      seq[0x7fffd00235a8]: begin poll step 2/2
+D1015 22:10:28.773405703   38405 interceptor_list.h:145]               InterceptorList::RunPromise[0x7fffd00235b0]: Running:<unknown>:-1
+I1015 22:10:28.773412776   38405 compression_filter.cc:111]            CompressMessage: len=13 alg=0 flags=0
+D1015 22:10:28.773420163   38405 interceptor_list.h:159]               InterceptorList::RunPromise[0x7fffd00235b0]: Running:END
+D1015 22:10:28.773427065   38405 seq_state.h:173]                      seq[0x7fffd00235a8]: poll step 2/2 gets ready
+I1015 22:10:28.773433844   38405 promise_based_filter.cc:540]          SVR[compression:0x7fffd0021960] SendMessage.WakeInsideCombiner next complete, result.has_value=true
+D1015 22:10:28.773440184   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffd00235b0]: destroy
+I1015 22:10:28.773450711   38405 pipe.h:176]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd0023520]: PollAck refs=4 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+I1015 22:10:28.773460892   38405 pipe.h:294]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd0023520]: AckNext refs=4 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.773470600   38405 pipe.h:137]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd0023520]: Unref refs=4 value_state=Acked on_empty={} on_full={} on_closed={}
+D1015 22:10:28.773481695   38405 promise_based_filter.cc:2463]         SVR[compression:0x7fffd0021960]: After send_message WakeInsideCombiner have_promise=true recv_initial_state=COMPLETE send_trailing_state=QUEUED_BEHIND_SEND_MESSAGE captured={send_trailing_metadata} send_initial_metadata=FORWARDED is_idle=true is_forwarded=true
+I1015 22:10:28.773490675   38405 promise_based_filter.cc:802]          SVR[compression:0x7fffd0021960] ReceiveMessage.WakeInsideCombiner st=IDLE push?=no next?=no allow_push_to_pipe=yes
+I1015 22:10:28.773500108   38405 latch.h:70]                           PBF_SERVER[0x7fffd0022170]: [compression]  LATCH[0x140736683093120]: Wait has_value:false waiter:{0}
+I1015 22:10:28.773506641   38405 promise_based_filter.cc:2301]         SVR[compression:0x7fffd0021960] PollTrailingMetadata: QUEUED
+I1015 22:10:28.773516405   38405 latch.h:70]                           PBF_SERVER[0x7fffd0022170]: [compression]  LATCH[0x140736683093120]: Wait has_value:false waiter:{0}
+I1015 22:10:28.773554463   38405 promise_based_filter.cc:2493]         SVR[compression:0x7fffd0021960]: WakeInsideCombiner poll=grpc-status: 0; send_initial_metadata=FORWARDED send_trailing_metadata=QUEUED
+I1015 22:10:28.773569128   38405 promise_based_filter.cc:449]          SVR[compression:0x7fffd0021960] SendMessage.Done st=FORWARDED_BATCH md=grpc-status: 0
+I1015 22:10:28.773578743   38405 promise_based_filter.cc:743]          SVR[compression:0x7fffd0021960] ReceiveMessage.Done st=IDLE md=grpc-status: 0
+D1015 22:10:28.773586589   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF re-poll
+I1015 22:10:28.773592909   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 8 -> 9 re-poll
+I1015 22:10:28.773602830   38405 call_combiner.cc:118]                 ==> CallCombiner::Start() [0x7fffd00208f0] closure=0x1b444c0|created=/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:1940 [/home/lc/lcd/study/grpc/src/core/lib/iomgr/call_combiner.h:189: re-poll] error=OK
+I1015 22:10:28.773609239   38405 call_combiner.cc:127]                   size: 3 -> 4
+I1015 22:10:28.773614104   38405 call_combiner.cc:138]                   QUEUING
+I1015 22:10:28.773633858   38405 promise_based_filter.cc:301]          FLUSHER:forward batch:  SEND_INITIAL_METADATA{:status: 200, grpc-accept-encoding: identity, deflate, gzip, content-type: application/grpc} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+I1015 22:10:28.773649904   38405 channel_stack.cc:256]                 OP[compression.trace:0x7fffd0021978]:  SEND_INITIAL_METADATA{:status: 200, grpc-accept-encoding: identity, deflate, gzip, content-type: application/grpc} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+I1015 22:10:28.773726455   38405 channel_stack.cc:256]                 OP[server_call_tracer:0x7fffd0021990]:  SEND_INITIAL_METADATA{:status: 200, grpc-accept-encoding: identity, deflate, gzip, content-type: application/grpc} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+D1015 22:10:28.773739506   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF flusher
+I1015 22:10:28.773749237   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 9 -> 10 flusher
+I1015 22:10:28.773765054   38405 promise_based_filter.cc:2039]         SVR[server_call_tracer:0x7fffd0021990] StartBatch: have_promise=true recv_initial_state=COMPLETE send_trailing_state=INITIAL captured={} send_initial_metadata=GOT_PIPE
+I1015 22:10:28.773781271   38405 promise_based_filter.cc:2417]         SVR[server_call_tracer:0x7fffd0021990]: WakeInsideCombiner have_promise=true recv_initial_state=COMPLETE send_trailing_state=QUEUED captured={send_trailing_metadata} send_initial_metadata=QUEUED_AND_GOT_PIPE
+D1015 22:10:28.773796200   38405 pipe.h:122]                           PBF_SERVER[0x7fffd00222f0]: [server_call_tracer]  PIPE[0x7fffd0023860]: IncrementRefCount refs=2 value_state=Empty on_empty={} on_full={} on_closed={}
+D1015 22:10:28.773808016   38405 pipe.h:122]                           PBF_SERVER[0x7fffd00222f0]: [server_call_tracer]  PIPE[0x7fffd0023860]: IncrementRefCount refs=3 value_state=Empty on_empty={} on_full={} on_closed={}
+D1015 22:10:28.773817693   38405 pipe.h:122]                           PBF_SERVER[0x7fffd00222f0]: [server_call_tracer]  PIPE[0x7fffd0023860]: IncrementRefCount refs=4 value_state=Empty on_empty={} on_full={} on_closed={}
+I1015 22:10:28.773828303   38405 pipe.h:152]                           PBF_SERVER[0x7fffd00222f0]: [server_call_tracer]  PIPE[0x7fffd0023860]: Push refs=5 value_state=Empty on_empty={} on_full={} on_closed={}
+I1015 22:10:28.773838555   38405 pipe.h:176]                           PBF_SERVER[0x7fffd00222f0]: [server_call_tracer]  PIPE[0x7fffd0023860]: PollAck refs=5 value_state=Ready on_empty={} on_full={} on_closed={}
+I1015 22:10:28.773844992   38405 promise_based_filter.cc:2445]         SVR[server_call_tracer:0x7fffd0021990]: WakeInsideCombiner: metadata_push pending
+I1015 22:10:28.773851187   38405 promise_based_filter.cc:2301]         SVR[server_call_tracer:0x7fffd0021990] PollTrailingMetadata: QUEUED
+I1015 22:10:28.773862580   38405 promise_based_filter.cc:2493]         SVR[server_call_tracer:0x7fffd0021990]: WakeInsideCombiner poll=grpc-status: 0; send_initial_metadata=QUEUED_AND_PUSHED_TO_PIPE send_trailing_metadata=QUEUED
+D1015 22:10:28.773868704   38405 seq_state.h:142]                      seq[0x7fffd00238e8]: begin poll step 1/2
+I1015 22:10:28.773879239   38405 pipe.h:204]                           PBF_SERVER[0x7fffd00222f0]: [server_call_tracer]  PIPE[0x7fffd0023860]: Next refs=5 value_state=Ready on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.773885981   38405 seq_state.h:148]                      seq[0x7fffd00238e8]: poll step 1/2 gets ready
+D1015 22:10:28.773895491   38405 pipe.h:137]                           PBF_SERVER[0x7fffd00222f0]: [server_call_tracer]  PIPE[0x7fffd0023860]: Unref refs=5 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.773905812   38405 pipe.h:122]                           PBF_SERVER[0x7fffd00222f0]: [server_call_tracer]  PIPE[0x7fffd0023860]: IncrementRefCount refs=4 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.773913233   38405 interceptor_list.h:92]                InterceptorList::RunPromise[0x7fffffffd0f0]: create immediate
+D1015 22:10:28.773919125   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffd130]: move from 0x7fffffffd0f0
+D1015 22:10:28.773924587   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffd0a0]: move from 0x7fffffffd130
+D1015 22:10:28.773929831   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffd180]: move from 0x7fffffffd0a0
+D1015 22:10:28.773935144   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffd0a0]: destroy
+D1015 22:10:28.773940161   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffd130]: destroy
+D1015 22:10:28.773945038   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffd0f0]: destroy
+D1015 22:10:28.773950093   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffd250]: move from 0x7fffffffd180
+D1015 22:10:28.773955305   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffd180]: destroy
+D1015 22:10:28.773960467   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffd398]: move from 0x7fffffffd250
+D1015 22:10:28.773965836   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffd250]: destroy
+D1015 22:10:28.773971248   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffffffd4b8]: move from 0x7fffffffd398
+D1015 22:10:28.773976494   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffd398]: destroy
+D1015 22:10:28.773986694   38405 pipe.h:137]                           PBF_SERVER[0x7fffd00222f0]: [server_call_tracer]  PIPE[0x7fffd0023860]: Unref refs=5 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.773992507   38405 interceptor_list.h:131]               InterceptorList::RunPromise[0x7fffd00238f0]: move from 0x7fffffffd4b8
+D1015 22:10:28.773997981   38405 interceptor_list.h:112]               InterceptorList::RunPromise[0x7fffffffd4b8]: destroy
+D1015 22:10:28.774003316   38405 seq_state.h:169]                      seq[0x7fffd00238e8]: begin poll step 2/2
+D1015 22:10:28.774009906   38405 interceptor_list.h:145]               InterceptorList::RunPromise[0x7fffd00238f0]: Result:has_value:1
+D1015 22:10:28.774016130   38405 seq_state.h:173]                      seq[0x7fffd00238e8]: poll step 2/2 gets ready
+I1015 22:10:28.774028791   38405 promise_based_filter.cc:2512]         SVR[server_call_tracer:0x7fffd0021990]: WakeInsideCombiner send_initial_metadata poll=:status: 200, grpc-accept-encoding: identity, deflate, gzip, content-type: application/grpc
+I1015 22:10:28.774040506   38405 pipe.h:294]                           PBF_SERVER[0x7fffd00222f0]: [server_call_tracer]  PIPE[0x7fffd0023860]: AckNext refs=4 value_state=WaitingForAck on_empty={0} on_full={} on_closed={}
+D1015 22:10:28.774050407   38405 pipe.h:137]                           PBF_SERVER[0x7fffd00222f0]: [server_call_tracer]  PIPE[0x7fffd0023860]: Unref refs=4 value_state=Acked on_empty={} on_full={} on_closed={}
+D1015 22:10:28.774057737   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF re-poll
+I1015 22:10:28.774063565   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 10 -> 11 re-poll
+I1015 22:10:28.774072988   38405 call_combiner.cc:118]                 ==> CallCombiner::Start() [0x7fffd00208f0] closure=0x1b4b1e0|created=/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:1940 [/home/lc/lcd/study/grpc/src/core/lib/iomgr/call_combiner.h:189: re-poll] error=OK
+I1015 22:10:28.774078653   38405 call_combiner.cc:127]                   size: 4 -> 5
+I1015 22:10:28.774083540   38405 call_combiner.cc:138]                   QUEUING
+I1015 22:10:28.774099324   38405 promise_based_filter.cc:301]          FLUSHER:forward batch:  SEND_INITIAL_METADATA{:status: 200, grpc-accept-encoding: identity, deflate, gzip, content-type: application/grpc} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+I1015 22:10:28.774114416   38405 channel_stack.cc:256]                 OP[server_call_tracer.trace:0x7fffd00219a8]:  SEND_INITIAL_METADATA{:status: 200, grpc-accept-encoding: identity, deflate, gzip, content-type: application/grpc} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+I1015 22:10:28.774188063   38405 channel_stack.cc:256]                 OP[connected:0x7fffd00219c0]:  SEND_INITIAL_METADATA{:status: 200, grpc-accept-encoding: identity, deflate, gzip, content-type: application/grpc} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+I1015 22:10:28.774217066   38405 chttp2_transport.cc:1686]             perform_stream_op[s=0x7fffd00227e0; op=0x1b4a740]:  SEND_INITIAL_METADATA{:status: 200, grpc-accept-encoding: identity, deflate, gzip, content-type: application/grpc} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+D1015 22:10:28.774228278   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF perform_stream_op
+I1015 22:10:28.774240650   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 11 -> 12 perform_stream_op
+I1015 22:10:28.774249766   38405 combiner.cc:142]                      C:0x1b450a0 grpc_combiner_execute c=0x1b4a760 last=1
+I1015 22:10:28.774259351   38405 call_combiner.cc:149]                 ==> CallCombiner::Stop() [0x7fffd00208f0] [/home/lc/lcd/study/grpc/src/core/lib/channel/connected_channel.cc:186: passed batch to transport]
+I1015 22:10:28.774267668   38405 call_combiner.cc:155]                   size: 5 -> 4
+I1015 22:10:28.774286360   38405 call_combiner.cc:162]                   checking queue
+I1015 22:10:28.774296458   38405 call_combiner.cc:179]                   EXECUTING FROM QUEUE: closure=0x1b44f00|created=/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:1940 error=OK
+D1015 22:10:28.774306096   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF flusher
+I1015 22:10:28.774313511   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 12 -> 11 flusher
+D1015 22:10:28.774321492   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF flusher
+I1015 22:10:28.774328559   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 11 -> 10 flusher
+D1015 22:10:28.774335722   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF re-poll
+I1015 22:10:28.774342983   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 10 -> 9 re-poll
+D1015 22:10:28.774350682   38405 exec_ctx.cc:48]                       closure 0x1b4a970 finished
+D1015 22:10:28.774358522   38405 exec_ctx.cc:36]                       running closure 0x1b44f00: created [/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:1940]: scheduled [/home/lc/lcd/study/grpc/src/core/lib/iomgr/call_combiner.cc:101]
+D1015 22:10:28.774365564   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF flusher
+I1015 22:10:28.774371196   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 9 -> 10 flusher
+I1015 22:10:28.774381802   38405 promise_based_filter.cc:2417]         SVR[message_size:0x7fffd00218d0]: WakeInsideCombiner have_promise=false recv_initial_state=COMPLETE send_trailing_state=FORWARDED captured={}
+I1015 22:10:28.774388337   38405 promise_based_filter.cc:492]          SVR[message_size:0x7fffd00218d0] SendMessage.WakeInsideCombiner st=CANCELLED_BUT_NOT_YET_POLLED
+I1015 22:10:28.774399801   38405 pipe.h:321]                           PBF_SERVER[0x7fffd0021da0]: [message_size]  PIPE[0x7fffd0023110]: MarkClosed refs=3 value_state=Acked on_empty={} on_full={} on_closed={}
+D1015 22:10:28.774409797   38405 pipe.h:137]                           PBF_SERVER[0x7fffd0021da0]: [message_size]  PIPE[0x7fffd0023110]: Unref refs=3 value_state=Closed on_empty={} on_full={} on_closed={}
+D1015 22:10:28.774417776   38405 promise_based_filter.cc:2463]         SVR[message_size:0x7fffd00218d0]: After send_message WakeInsideCombiner have_promise=false recv_initial_state=COMPLETE send_trailing_state=FORWARDED captured={} is_idle=true is_forwarded=false
+I1015 22:10:28.774425090   38405 promise_based_filter.cc:802]          SVR[message_size:0x7fffd00218d0] ReceiveMessage.WakeInsideCombiner st=CANCELLED_WHILST_IDLE push?=no next?=no allow_push_to_pipe=yes
+I1015 22:10:28.774434540   38405 pipe.h:321]                           PBF_SERVER[0x7fffd0021da0]: [message_size]  PIPE[0x7fffd0023270]: MarkClosed refs=2 value_state=Empty on_empty={} on_full={} on_closed={}
+D1015 22:10:28.774444427   38405 pipe.h:137]                           PBF_SERVER[0x7fffd0021da0]: [message_size]  PIPE[0x7fffd0023270]: Unref refs=2 value_state=Closed on_empty={} on_full={} on_closed={}
+I1015 22:10:28.774451086   38405 call_combiner.cc:149]                 ==> CallCombiner::Stop() [0x7fffd00208f0] [/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:263: nothing to flush]
+I1015 22:10:28.774456401   38405 call_combiner.cc:155]                   size: 4 -> 3
+I1015 22:10:28.774461055   38405 call_combiner.cc:162]                   checking queue
+I1015 22:10:28.774467812   38405 call_combiner.cc:179]                   EXECUTING FROM QUEUE: closure=0x1b4ae20|created=/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:1940 error=OK
+D1015 22:10:28.774473585   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF flusher
+I1015 22:10:28.774478939   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 10 -> 9 flusher
+D1015 22:10:28.774484514   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF re-poll
+I1015 22:10:28.774489696   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 9 -> 8 re-poll
+D1015 22:10:28.774496560   38405 exec_ctx.cc:48]                       closure 0x1b44f00 finished
+D1015 22:10:28.774504293   38405 exec_ctx.cc:36]                       running closure 0x1b4ae20: created [/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:1940]: scheduled [/home/lc/lcd/study/grpc/src/core/lib/iomgr/call_combiner.cc:101]
+D1015 22:10:28.774512880   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF flusher
+I1015 22:10:28.774533489   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 8 -> 9 flusher
+I1015 22:10:28.774547195   38405 promise_based_filter.cc:2417]         SVR[http-server:0x7fffd0021930]: WakeInsideCombiner have_promise=false recv_initial_state=COMPLETE send_trailing_state=FORWARDED captured={} send_initial_metadata=FORWARDED
+I1015 22:10:28.774560485   38405 pipe.h:176]                           PBF_SERVER[0x7fffd0021ff0]: [http-server]  PIPE[0x7fffd00233c0]: PollAck refs=3 value_state=Acked on_empty={} on_full={} on_closed={}
+I1015 22:10:28.774567042   38405 promise_based_filter.cc:2440]         SVR[http-server:0x7fffd0021930]: WakeInsideCombiner: metadata_push done
+D1015 22:10:28.774576807   38405 pipe.h:137]                           PBF_SERVER[0x7fffd0021ff0]: [http-server]  PIPE[0x7fffd00233c0]: Unref refs=3 value_state=Empty on_empty={} on_full={} on_closed={}
+I1015 22:10:28.774583213   38405 call_combiner.cc:149]                 ==> CallCombiner::Stop() [0x7fffd00208f0] [/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:263: nothing to flush]
+I1015 22:10:28.774588552   38405 call_combiner.cc:155]                   size: 3 -> 2
+I1015 22:10:28.774593317   38405 call_combiner.cc:162]                   checking queue
+I1015 22:10:28.774600130   38405 call_combiner.cc:179]                   EXECUTING FROM QUEUE: closure=0x1b444c0|created=/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:1940 error=OK
+D1015 22:10:28.774605914   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF flusher
+I1015 22:10:28.774611267   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 9 -> 8 flusher
+D1015 22:10:28.774616739   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF re-poll
+I1015 22:10:28.774621888   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 8 -> 7 re-poll
+D1015 22:10:28.774626873   38405 exec_ctx.cc:48]                       closure 0x1b4ae20 finished
+D1015 22:10:28.774632022   38405 exec_ctx.cc:36]                       running closure 0x1b444c0: created [/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:1940]: scheduled [/home/lc/lcd/study/grpc/src/core/lib/iomgr/call_combiner.cc:101]
+D1015 22:10:28.774637836   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF flusher
+I1015 22:10:28.774643153   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 7 -> 8 flusher
+I1015 22:10:28.774650941   38405 promise_based_filter.cc:2417]         SVR[compression:0x7fffd0021960]: WakeInsideCombiner have_promise=false recv_initial_state=COMPLETE send_trailing_state=FORWARDED captured={} send_initial_metadata=FORWARDED
+I1015 22:10:28.774657258   38405 promise_based_filter.cc:492]          SVR[compression:0x7fffd0021960] SendMessage.WakeInsideCombiner st=CANCELLED_BUT_NOT_YET_POLLED
+I1015 22:10:28.774666862   38405 pipe.h:321]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd0023520]: MarkClosed refs=3 value_state=Acked on_empty={} on_full={} on_closed={}
+D1015 22:10:28.774676509   38405 pipe.h:137]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd0023520]: Unref refs=3 value_state=Closed on_empty={} on_full={} on_closed={}
+D1015 22:10:28.774684594   38405 promise_based_filter.cc:2463]         SVR[compression:0x7fffd0021960]: After send_message WakeInsideCombiner have_promise=false recv_initial_state=COMPLETE send_trailing_state=FORWARDED captured={} send_initial_metadata=FORWARDED is_idle=true is_forwarded=false
+I1015 22:10:28.774691257   38405 promise_based_filter.cc:802]          SVR[compression:0x7fffd0021960] ReceiveMessage.WakeInsideCombiner st=CANCELLED_WHILST_IDLE push?=no next?=no allow_push_to_pipe=yes
+I1015 22:10:28.774700891   38405 pipe.h:321]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd0023680]: MarkClosed refs=2 value_state=Empty on_empty={} on_full={} on_closed={}
+D1015 22:10:28.774710728   38405 pipe.h:137]                           PBF_SERVER[0x7fffd0022170]: [compression]  PIPE[0x7fffd0023680]: Unref refs=2 value_state=Closed on_empty={} on_full={} on_closed={}
+I1015 22:10:28.774716730   38405 call_combiner.cc:149]                 ==> CallCombiner::Stop() [0x7fffd00208f0] [/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:263: nothing to flush]
+I1015 22:10:28.774721994   38405 call_combiner.cc:155]                   size: 2 -> 1
+I1015 22:10:28.774726599   38405 call_combiner.cc:162]                   checking queue
+I1015 22:10:28.774733197   38405 call_combiner.cc:179]                   EXECUTING FROM QUEUE: closure=0x1b4b1e0|created=/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:1940 error=OK
+D1015 22:10:28.774738787   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF flusher
+I1015 22:10:28.774744044   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 8 -> 7 flusher
+D1015 22:10:28.774749542   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF re-poll
+I1015 22:10:28.774754909   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 7 -> 6 re-poll
+D1015 22:10:28.774760000   38405 exec_ctx.cc:48]                       closure 0x1b444c0 finished
+D1015 22:10:28.774765249   38405 exec_ctx.cc:36]                       running closure 0x1b4b1e0: created [/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:1940]: scheduled [/home/lc/lcd/study/grpc/src/core/lib/iomgr/call_combiner.cc:101]
+D1015 22:10:28.774771195   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF flusher
+I1015 22:10:28.774776536   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 6 -> 7 flusher
+I1015 22:10:28.774833161   38405 promise_based_filter.cc:2417]         SVR[server_call_tracer:0x7fffd0021990]: WakeInsideCombiner have_promise=false recv_initial_state=COMPLETE send_trailing_state=FORWARDED captured={} send_initial_metadata=FORWARDED
+I1015 22:10:28.774851467   38405 pipe.h:176]                           PBF_SERVER[0x7fffd00222f0]: [server_call_tracer]  PIPE[0x7fffd0023860]: PollAck refs=3 value_state=Acked on_empty={} on_full={} on_closed={}
+I1015 22:10:28.774860629   38405 promise_based_filter.cc:2440]         SVR[server_call_tracer:0x7fffd0021990]: WakeInsideCombiner: metadata_push done
+D1015 22:10:28.774873155   38405 pipe.h:137]                           PBF_SERVER[0x7fffd00222f0]: [server_call_tracer]  PIPE[0x7fffd0023860]: Unref refs=3 value_state=Empty on_empty={} on_full={} on_closed={}
+I1015 22:10:28.774882823   38405 call_combiner.cc:149]                 ==> CallCombiner::Stop() [0x7fffd00208f0] [/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:263: nothing to flush]
+I1015 22:10:28.774890788   38405 call_combiner.cc:155]                   size: 1 -> 0
+I1015 22:10:28.774898516   38405 call_combiner.cc:186]                   queue empty
+D1015 22:10:28.774905759   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF flusher
+I1015 22:10:28.774913873   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 7 -> 6 flusher
+D1015 22:10:28.774921976   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF re-poll
+I1015 22:10:28.774930342   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 6 -> 5 re-poll
+D1015 22:10:28.774938703   38405 exec_ctx.cc:48]                       closure 0x1b4b1e0 finished
+I1015 22:10:28.774947173   38405 combiner.cc:216]                      C:0x1b450a0 grpc_combiner_continue_exec_ctx contended=0 exec_ctx_ready_to_finish=1 time_to_execute_final_list=0
+I1015 22:10:28.774954706   38405 combiner.cc:253]                      C:0x1b450a0 maybe_finish_one n=0x1b4a760
+I1015 22:10:28.774982968   38405 chttp2_transport.cc:1422]             perform_stream_op_locked[s=0x7fffd00227e0; op=0x1b4a740]:  SEND_INITIAL_METADATA{:status: 200, grpc-accept-encoding: identity, deflate, gzip, content-type: application/grpc} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}; on_complete = 0x7fffd0022478
+I1015 22:10:28.774992486   38405 chttp2_transport.cc:1402]             --metadata--
+I1015 22:10:28.775003207   38405 chttp2_transport.cc:1406]             HTTP:1:HDR:SVR::status: 200
+I1015 22:10:28.775012505   38405 chttp2_transport.cc:1406]             HTTP:1:HDR:SVR:grpc-accept-encoding: identity, deflate, gzip
+I1015 22:10:28.775021799   38405 chttp2_transport.cc:1406]             HTTP:1:HDR:SVR:content-type: application/grpc
+I1015 22:10:28.775029650   38405 chttp2_transport.cc:1402]             --metadata--
+I1015 22:10:28.775039247   38405 chttp2_transport.cc:1406]             HTTP:1:TRL:SVR:grpc-status: 0
+I1015 22:10:28.775050159   38405 stream_lists.cc:127]                  0x1b48970[1][svr]: add to writable
+D1015 22:10:28.775058289   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF chttp2_writing:become
+I1015 22:10:28.775066729   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 5 -> 6 chttp2_writing:become
+I1015 22:10:28.775076639   38405 chttp2_transport.cc:958]              W:0x1b48970 SERVER [ipv6:%5B::1%5D:34162] state IDLE -> WRITING [SEND_INITIAL_METADATA]
+I1015 22:10:28.775085070   38405 ref_counted.h:74]                     chttp2_refcount:0x1b48978 ref 7 -> 8
+I1015 22:10:28.775093369   38405 combiner.cc:336]                      C:0x1b450a0 grpc_combiner_execute_finally c=0x1b48bc8; ac=0x1b450a0
+I1015 22:10:28.775105894   38405 chttp2_transport.cc:958]              W:0x1b48970 SERVER [ipv6:%5B::1%5D:34162] state WRITING -> WRITING+MORE [SEND_MESSAGE]
+I1015 22:10:28.775117269   38405 chttp2_transport.cc:1345]             complete_closure_step: t=0x1b48970 0x7fffd0022478 refs=3 flags=0x0001 desc=op->on_complete err=OK write_state=WRITING+MORE whence=<unknown>:-1
+D1015 22:10:28.775125737   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF perform_stream_op
+I1015 22:10:28.775133921   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 6 -> 5 perform_stream_op
+I1015 22:10:28.775142016   38405 combiner.cc:293]                      C:0x1b450a0 finish old_state=5
+I1015 22:10:28.775149886   38405 combiner.cc:216]                      C:0x1b450a0 grpc_combiner_continue_exec_ctx contended=0 exec_ctx_ready_to_finish=1 time_to_execute_final_list=1
+I1015 22:10:28.775157896   38405 combiner.cc:275]                      C:0x1b450a0 execute_final[0] c=0x1b48bc8
+I1015 22:10:28.775168259   38405 stream_lists.cc:73]                   0x1b48970[1][svr]: pop from writable
+I1015 22:10:28.775176805   38405 writing.cc:472]                       W:0x1b48970 SERVER[1] im-(sent,send)=(0,1)
+I1015 22:10:28.775201746   38405 chttp2_transport.cc:1345]             complete_closure_step: t=0x1b48970 0x7fffd0022478 refs=2 flags=0x0001 desc=send_initial_metadata_finished err=OK write_state=WRITING+MORE whence=<unknown>:-1
+I1015 22:10:28.775216260   38405 chttp2_transport.cc:1345]             complete_closure_step: t=0x1b48970 0x7fffd0022478 refs=1 flags=0x0001 desc=finish_write_cb err=OK write_state=WRITING+MORE whence=<unknown>:-1
+I1015 22:10:28.775224820   38405 writing.cc:575]                       sending trailing_metadata
+D1015 22:10:28.775238954   38405 chttp2_transport.cc:2368]             MARK_STREAM_CLOSED: t=0x1b48970 s=0x7fffd00227e0(id=1) read+write [OK]
+I1015 22:10:28.775249585   38405 chttp2_transport.cc:1345]             complete_closure_step: t=0x1b48970 0x7fffd0022478 refs=0 flags=0x0001 desc=send_trailing_metadata_finished err=OK write_state=WRITING+MORE whence=<unknown>:-1
+I1015 22:10:28.775267449   38405 ref_counted.h:74]                     chttp2_refcount:0x1b48978 ref 8 -> 9
+D1015 22:10:28.775291076   38405 chttp2_transport.cc:2156]             maybe_complete_recv_trailing_metadata cli=0 s=0x7fffd00227e0 closure=0x7fffd0022778 read_closed=1 write_closed=1 0
+D1015 22:10:28.775309352   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF chttp2
+I1015 22:10:28.775317840   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 5 -> 4 chttp2
+I1015 22:10:28.775326745   38405 ref_counted.h:164]                    chttp2_refcount:0x1b48978 unref 9 -> 8
+I1015 22:10:28.775335030   38405 stream_lists.cc:127]                  0x1b48970[1][svr]: add to writing
+I1015 22:10:28.775344201   38405 chttp2_transport.cc:958]              W:0x1b48970 SERVER [ipv6:%5B::1%5D:34162] state WRITING+MORE -> WRITING [begin write in current thread]
+I1015 22:10:28.775352884   38405 chttp2_transport.cc:1087]             SERVER[0x1b48970]: Write 138 bytes
+I1015 22:10:28.775360479   38405 ref_counted.h:74]                     chttp2_refcount:0x1b48978 ref 8 -> 9
+I1015 22:10:28.775368827   38405 tcp_posix.cc:1827]                    WRITE 0x1b47280 (peer=ipv6:%5B::1%5D:34162)
+D1015 22:10:28.775379150   38405 tcp_posix.cc:1831]                    WRITE DATA: 00 00 4e 01 04 00 00 00 01 88 40 0c '..N.......@.'
+I1015 22:10:28.775387031   38405 tcp_posix.cc:1827]                    WRITE 0x1b47280 (peer=ipv6:%5B::1%5D:34162)
+D1015 22:10:28.775395529   38405 tcp_posix.cc:1831]                    WRITE DATA: 63 6f 6e 74 65 6e 74 2d 74 79 70 65 'content-type'
+I1015 22:10:28.775403603   38405 tcp_posix.cc:1827]                    WRITE 0x1b47280 (peer=ipv6:%5B::1%5D:34162)
+D1015 22:10:28.775411006   38405 tcp_posix.cc:1831]                    WRITE DATA: 10 '.'
+I1015 22:10:28.781350523   38405 tcp_posix.cc:1827]                    WRITE 0x1b47280 (peer=ipv6:%5B::1%5D:34162)
+D1015 22:10:28.781389292   38405 tcp_posix.cc:1831]                    WRITE DATA: 61 70 70 6c 69 63 61 74 69 6f 6e 2f 67 72 70 63 'application/grpc'
+I1015 22:10:28.781398191   38405 tcp_posix.cc:1827]                    WRITE 0x1b47280 (peer=ipv6:%5B::1%5D:34162)
+D1015 22:10:28.781406111   38405 tcp_posix.cc:1831]                    WRITE DATA: 40 14 '@.'
+I1015 22:10:28.781413355   38405 tcp_posix.cc:1827]                    WRITE 0x1b47280 (peer=ipv6:%5B::1%5D:34162)
+D1015 22:10:28.781422355   38405 tcp_posix.cc:1831]                    WRITE DATA: 67 72 70 63 2d 61 63 63 65 70 74 2d 65 6e 63 6f 64 69 6e 67 'grpc-accept-encoding'
+I1015 22:10:28.781430363   38405 tcp_posix.cc:1827]                    WRITE 0x1b47280 (peer=ipv6:%5B::1%5D:34162)
+D1015 22:10:28.781437822   38405 tcp_posix.cc:1831]                    WRITE DATA: 17 '.'
+I1015 22:10:28.781445106   38405 tcp_posix.cc:1827]                    WRITE 0x1b47280 (peer=ipv6:%5B::1%5D:34162)
+D1015 22:10:28.781454152   38405 tcp_posix.cc:1831]                    WRITE DATA: 69 64 65 6e 74 69 74 79 2c 20 64 65 66 6c 61 74 65 2c 20 67 7a 69 70 'identity, deflate, gzip'
+I1015 22:10:28.781461889   38405 tcp_posix.cc:1827]                    WRITE 0x1b47280 (peer=ipv6:%5B::1%5D:34162)
+D1015 22:10:28.781470695   38405 tcp_posix.cc:1831]                    WRITE DATA: 00 00 12 00 00 00 00 00 01 00 00 00 00 0d 0a 0b 48 65 6c 6c 6f 20 77 '................Hello w'
+I1015 22:10:28.781478414   38405 tcp_posix.cc:1827]                    WRITE 0x1b47280 (peer=ipv6:%5B::1%5D:34162)
+D1015 22:10:28.781486476   38405 tcp_posix.cc:1831]                    WRITE DATA: 6f 72 6c 64 00 00 0f 01 05 00 00 00 01 40 0b 'orld.........@.'
+I1015 22:10:28.781493860   38405 tcp_posix.cc:1827]                    WRITE 0x1b47280 (peer=ipv6:%5B::1%5D:34162)
+D1015 22:10:28.781502130   38405 tcp_posix.cc:1831]                    WRITE DATA: 67 72 70 63 2d 73 74 61 74 75 73 'grpc-status'
+I1015 22:10:28.781509512   38405 tcp_posix.cc:1827]                    WRITE 0x1b47280 (peer=ipv6:%5B::1%5D:34162)
+D1015 22:10:28.781516848   38405 tcp_posix.cc:1831]                    WRITE DATA: 01 30 '.0'
+I1015 22:10:28.781581597   38405 tcp_posix.cc:1875]                    write: OK
+D1015 22:10:28.781591817   38405 closure.h:297]                        running closure 0x1b48c58: created [/home/lc/lcd/study/grpc/src/core/ext/transport/chttp2/transport/chttp2_transport.cc:260]: run [/home/lc/lcd/study/grpc/src/core/lib/iomgr/tcp_posix.cc:1877]
+I1015 22:10:28.781602131   38405 chttp2_transport.cc:1101]             SERVER[0x1b48970]: Finish write
+I1015 22:10:28.781611893   38405 combiner.cc:142]                      C:0x1b450a0 grpc_combiner_execute c=0x1b48c58 last=3
+D1015 22:10:28.781621432   38405 closure.h:306]                        closure 0x1b48c58 finished
+I1015 22:10:28.781630040   38405 ref_counted.h:164]                    chttp2_refcount:0x1b48978 unref 9 -> 8
+I1015 22:10:28.781638327   38405 combiner.cc:293]                      C:0x1b450a0 finish old_state=5
+D1015 22:10:28.781647951   38405 exec_ctx.cc:36]                       running closure 0x7fffd0022778: created [/home/lc/lcd/study/grpc/src/core/lib/channel/connected_channel.cc:123]: scheduled [/home/lc/lcd/study/grpc/src/core/ext/transport/chttp2/transport/chttp2_transport.cc:1328]
+I1015 22:10:28.781662843   38405 call_combiner.cc:118]                 ==> CallCombiner::Start() [0x7fffd00208f0] closure=0x7fffd0022400|created=/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:2006 [/home/lc/lcd/study/grpc/src/core/lib/channel/connected_channel.cc:106: recv_trailing_metadata_ready] error=OK
+I1015 22:10:28.781672510   38405 call_combiner.cc:127]                   size: 0 -> 1
+I1015 22:10:28.781679215   38405 call_combiner.cc:132]                   EXECUTING IMMEDIATELY
+D1015 22:10:28.781687239   38405 exec_ctx.cc:48]                       closure 0x7fffd0022778 finished
+D1015 22:10:28.781695713   38405 exec_ctx.cc:36]                       running closure 0x7fffd0022400: created [/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:2006]: scheduled [/home/lc/lcd/study/grpc/src/core/lib/iomgr/call_combiner.cc:101]
+I1015 22:10:28.784410857   38405 promise_based_filter.cc:2332]         SVR[server_call_tracer:0x7fffd0021990]: RecvTrailingMetadataReady error=OK md=
+D1015 22:10:28.784437744   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF flusher
+I1015 22:10:28.784450134   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 4 -> 5 flusher
+D1015 22:10:28.784463662   38405 promise_based_filter.cc:2175]         SVR[server_call_tracer:0x7fffd0021990]ServerCallData::Completed: send_trailing_state=FORWARDED send_initial_state=FORWARDED error=OK
+I1015 22:10:28.784481400   38405 call_combiner.h:172]                  CallCombinerClosureList executing closure while already holding call_combiner 0x7fffd00208f0: closure=0x7fffd0022280|created=/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:2006 error=OK reason=continue recv trailing
+D1015 22:10:28.784492085   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF flusher
+I1015 22:10:28.784500850   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 5 -> 4 flusher
+D1015 22:10:28.784510330   38405 exec_ctx.cc:48]                       closure 0x7fffd0022400 finished
+D1015 22:10:28.784536032   38405 exec_ctx.cc:36]                       running closure 0x7fffd0022280: created [/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:2006]: scheduled [/home/lc/lcd/study/grpc/src/core/lib/iomgr/call_combiner.h:179]
+I1015 22:10:28.784553023   38405 promise_based_filter.cc:2332]         SVR[compression:0x7fffd0021960]: RecvTrailingMetadataReady error=OK md=
+D1015 22:10:28.784562641   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF flusher
+I1015 22:10:28.784572168   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 4 -> 5 flusher
+D1015 22:10:28.784582803   38405 promise_based_filter.cc:2175]         SVR[compression:0x7fffd0021960]ServerCallData::Completed: send_trailing_state=FORWARDED send_initial_state=FORWARDED error=OK
+I1015 22:10:28.784616465   38405 promise_based_filter.cc:449]          SVR[compression:0x7fffd0021960] SendMessage.Done st=CANCELLED md=grpc-status: 0
+I1015 22:10:28.784636125   38405 promise_based_filter.cc:743]          SVR[compression:0x7fffd0021960] ReceiveMessage.Done st=CANCELLED md=grpc-status: 0
+I1015 22:10:28.784651716   38405 call_combiner.h:172]                  CallCombinerClosureList executing closure while already holding call_combiner 0x7fffd00208f0: closure=0x7fffd0022100|created=/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:2006 error=OK reason=continue recv trailing
+D1015 22:10:28.784662673   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF flusher
+I1015 22:10:28.784671552   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 5 -> 4 flusher
+D1015 22:10:28.784680038   38405 exec_ctx.cc:48]                       closure 0x7fffd0022280 finished
+D1015 22:10:28.784688294   38405 exec_ctx.cc:36]                       running closure 0x7fffd0022100: created [/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:2006]: scheduled [/home/lc/lcd/study/grpc/src/core/lib/iomgr/call_combiner.h:179]
+I1015 22:10:28.784700964   38405 promise_based_filter.cc:2332]         SVR[http-server:0x7fffd0021930]: RecvTrailingMetadataReady error=OK md=
+D1015 22:10:28.784711549   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF flusher
+I1015 22:10:28.784721040   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 4 -> 5 flusher
+D1015 22:10:28.784730247   38405 promise_based_filter.cc:2175]         SVR[http-server:0x7fffd0021930]ServerCallData::Completed: send_trailing_state=FORWARDED send_initial_state=FORWARDED error=OK
+I1015 22:10:28.784743084   38405 call_combiner.h:172]                  CallCombinerClosureList executing closure while already holding call_combiner 0x7fffd00208f0: closure=0x7fffd0021f48|created=/home/lc/lcd/study/grpc/src/core/ext/filters/deadline/deadline_filter.cc:162 error=OK reason=continue recv trailing
+D1015 22:10:28.784751920   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF flusher
+I1015 22:10:28.784759963   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 5 -> 4 flusher
+D1015 22:10:28.784767511   38405 exec_ctx.cc:48]                       closure 0x7fffd0022100 finished
+D1015 22:10:28.784775289   38405 exec_ctx.cc:36]                       running closure 0x7fffd0021f48: created [/home/lc/lcd/study/grpc/src/core/ext/filters/deadline/deadline_filter.cc:162]: scheduled [/home/lc/lcd/study/grpc/src/core/lib/iomgr/call_combiner.h:179]
+D1015 22:10:28.784785144   38405 closure.h:297]                        running closure 0x7fffd0021eb0: created [/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:2006]: run [/home/lc/lcd/study/grpc/src/core/ext/filters/deadline/deadline_filter.cc:150]
+I1015 22:10:28.784798040   38405 promise_based_filter.cc:2332]         SVR[message_size:0x7fffd00218d0]: RecvTrailingMetadataReady error=OK md=
+D1015 22:10:28.784806831   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF flusher
+I1015 22:10:28.784815248   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 4 -> 5 flusher
+D1015 22:10:28.784824880   38405 promise_based_filter.cc:2175]         SVR[message_size:0x7fffd00218d0]ServerCallData::Completed: send_trailing_state=FORWARDED send_initial_state=null error=OK
+I1015 22:10:28.784841547   38405 promise_based_filter.cc:449]          SVR[message_size:0x7fffd00218d0] SendMessage.Done st=CANCELLED md=grpc-status: 0
+I1015 22:10:28.784858085   38405 promise_based_filter.cc:743]          SVR[message_size:0x7fffd00218d0] ReceiveMessage.Done st=CANCELLED md=grpc-status: 0
+I1015 22:10:28.784872150   38405 call_combiner.h:172]                  CallCombinerClosureList executing closure while already holding call_combiner 0x7fffd00208f0: closure=0x7fffd0021d30|created=/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:2006 error=OK reason=continue recv trailing
+D1015 22:10:28.784881954   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF flusher
+I1015 22:10:28.784890674   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 5 -> 4 flusher
+D1015 22:10:28.784898730   38405 closure.h:306]                        closure 0x7fffd0021eb0 finished
+D1015 22:10:28.784905669   38405 exec_ctx.cc:48]                       closure 0x7fffd0021f48 finished
+D1015 22:10:28.784913897   38405 exec_ctx.cc:36]                       running closure 0x7fffd0021d30: created [/home/lc/lcd/study/grpc/src/core/lib/channel/promise_based_filter.cc:2006]: scheduled [/home/lc/lcd/study/grpc/src/core/lib/iomgr/call_combiner.h:179]
+I1015 22:10:28.784926955   38405 promise_based_filter.cc:2332]         SVR[server-auth:0x7fffd00218a0]: RecvTrailingMetadataReady error=OK md=
+D1015 22:10:28.784936102   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF flusher
+I1015 22:10:28.784945168   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 4 -> 5 flusher
+D1015 22:10:28.784956132   38405 promise_based_filter.cc:2175]         SVR[server-auth:0x7fffd00218a0]ServerCallData::Completed: send_trailing_state=FORWARDED send_initial_state=null error=OK
+I1015 22:10:28.784969764   38405 call_combiner.h:172]                  CallCombinerClosureList executing closure while already holding call_combiner 0x7fffd00208f0: closure=0x7fffd0021b78|created=/home/lc/lcd/study/grpc/src/core/lib/surface/server.cc:1522 error=OK reason=continue recv trailing
+D1015 22:10:28.784980103   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF flusher
+I1015 22:10:28.784989068   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 5 -> 4 flusher
+D1015 22:10:28.784997474   38405 exec_ctx.cc:48]                       closure 0x7fffd0021d30 finished
+D1015 22:10:28.785005491   38405 exec_ctx.cc:36]                       running closure 0x7fffd0021b78: created [/home/lc/lcd/study/grpc/src/core/lib/surface/server.cc:1522]: scheduled [/home/lc/lcd/study/grpc/src/core/lib/iomgr/call_combiner.h:179]
+D1015 22:10:28.785019205   38405 closure.h:297]                        running closure 0x7fffd0021730: created [/home/lc/lcd/study/grpc/src/core/lib/surface/call.cc:1871]: run [/home/lc/lcd/study/grpc/src/core/lib/surface/server.cc:1757]
+I1015 22:10:28.785029947   38405 call_combiner.cc:149]                 ==> CallCombiner::Stop() [0x7fffd00208f0] [/home/lc/lcd/study/grpc/src/core/lib/surface/call.cc:1489: recv_trailing_metadata_ready]
+I1015 22:10:28.785038449   38405 call_combiner.cc:155]                   size: 1 -> 0
+I1015 22:10:28.785045425   38405 call_combiner.cc:186]                   queue empty
+D1015 22:10:28.785054727   38405 call.cc:1050]                         set_final_status SVR OK
+D1015 22:10:28.785078820   38405 call.cc:659]                          BATCH:0x1b46be0 COMPLETE:{kRecvTrailingMetadata} REMAINING:{} (tag:0x1b47b60)
+D1015 22:10:28.785088850   38405 call.cc:1321]                         tag:0x1b47b60 batch_error=OK op: RECV_TRAILING_METADATA
+I1015 22:10:28.785099587   38405 completion_queue.cc:710]              cq_end_op_for_next(cq=0x1b24230, tag=0x1b47b60, error=OK, done=0x8e097b, done_arg=0x1b46be0, storage=0x1b46c58)
+I1015 22:10:28.785115233   38405 ev_posix.cc:257]                      (polling-api) pollset_kick(0x1b243f8, (nil))
+D1015 22:10:28.785130984   38405 ev_epoll1_linux.cc:1074]              PS:0x1b243f8 KICK:(nil) curps=(nil) curworker=(nil) root=(nil)
+I1015 22:10:28.785140009   38405 ev_epoll1_linux.cc:1083]               .. kicked_without_poller
+D1015 22:10:28.785148265   38405 closure.h:306]                        closure 0x7fffd0021730 finished
+D1015 22:10:28.785155364   38405 exec_ctx.cc:48]                       closure 0x7fffd0021b78 finished
+I1015 22:10:28.785163681   38405 combiner.cc:216]                      C:0x1b450a0 grpc_combiner_continue_exec_ctx contended=0 exec_ctx_ready_to_finish=1 time_to_execute_final_list=0
+I1015 22:10:28.785172649   38405 combiner.cc:253]                      C:0x1b450a0 maybe_finish_one n=0x1b48c58
+I1015 22:10:28.785184375   38405 chttp2_transport.cc:958]              W:0x1b48970 SERVER [ipv6:%5B::1%5D:34162] state WRITING -> IDLE [finish writing]
+I1015 22:10:28.785195735   38405 stream_lists.cc:73]                   0x1b48970[1][svr]: pop from writing
+D1015 22:10:28.785204811   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF chttp2_writing:end
+I1015 22:10:28.785213807   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 4 -> 3 chttp2_writing:end
+I1015 22:10:28.785223386   38405 ref_counted.h:164]                    chttp2_refcount:0x1b48978 unref 8 -> 7
+I1015 22:10:28.785461653   38405 combiner.cc:293]                      C:0x1b450a0 finish old_state=3
+D1015 22:10:28.785478760   38405 exec_ctx.cc:36]                       running closure 0x7fffd0022478: created [/home/lc/lcd/study/grpc/src/core/lib/channel/connected_channel.cc:123]: scheduled [/home/lc/lcd/study/grpc/src/core/ext/transport/chttp2/transport/chttp2_transport.cc:967]
+I1015 22:10:28.785492878   38405 call_combiner.cc:118]                 ==> CallCombiner::Start() [0x7fffd00208f0] closure=0x7fffd00235f8|created=<unknown>:-1 [/home/lc/lcd/study/grpc/src/core/lib/channel/connected_channel.cc:106: on_complete] error=OK
+I1015 22:10:28.785500888   38405 call_combiner.cc:127]                   size: 0 -> 1
+I1015 22:10:28.785507199   38405 call_combiner.cc:132]                   EXECUTING IMMEDIATELY
+D1015 22:10:28.785514484   38405 exec_ctx.cc:48]                       closure 0x7fffd0022478 finished
+D1015 22:10:28.785541611   38405 exec_ctx.cc:36]                       running closure 0x7fffd00235f8: created [<unknown>:-1]: scheduled [/home/lc/lcd/study/grpc/src/core/lib/iomgr/call_combiner.cc:101]
+D1015 22:10:28.785552006   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF flusher
+I1015 22:10:28.785560660   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 3 -> 4 flusher
+I1015 22:10:28.785572100   38405 promise_based_filter.cc:418]          SVR[compression:0x7fffd0021960] SendMessage.OnComplete st=CANCELLED status=OK
+I1015 22:10:28.785583659   38405 call_combiner.h:172]                  CallCombinerClosureList executing closure while already holding call_combiner 0x7fffd00208f0: closure=0x7fffd00231e8|created=<unknown>:-1 error=OK reason=forward after cancel
+D1015 22:10:28.785592540   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF flusher
+I1015 22:10:28.785600969   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 4 -> 3 flusher
+D1015 22:10:28.785609011   38405 exec_ctx.cc:48]                       closure 0x7fffd00235f8 finished
+D1015 22:10:28.785616725   38405 exec_ctx.cc:36]                       running closure 0x7fffd00231e8: created [<unknown>:-1]: scheduled [/home/lc/lcd/study/grpc/src/core/lib/iomgr/call_combiner.h:179]
+D1015 22:10:28.785624863   38405 transport.h:268]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 REF flusher
+I1015 22:10:28.785632620   38405 ref_counted.h:114]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 3 -> 4 flusher
+I1015 22:10:28.785641261   38405 promise_based_filter.cc:418]          SVR[message_size:0x7fffd00218d0] SendMessage.OnComplete st=CANCELLED status=OK
+I1015 22:10:28.785651565   38405 call_combiner.h:172]                  CallCombinerClosureList executing closure while already holding call_combiner 0x7fffd00208f0: closure=0x1b4a818|created=/home/lc/lcd/study/grpc/src/core/lib/surface/call.cc:1892 error=OK reason=forward after cancel
+D1015 22:10:28.785660785   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF flusher
+I1015 22:10:28.785669038   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 4 -> 3 flusher
+D1015 22:10:28.785676765   38405 exec_ctx.cc:48]                       closure 0x7fffd00231e8 finished
+D1015 22:10:28.785684425   38405 exec_ctx.cc:36]                       running closure 0x1b4a818: created [/home/lc/lcd/study/grpc/src/core/lib/surface/call.cc:1892]: scheduled [/home/lc/lcd/study/grpc/src/core/lib/iomgr/call_combiner.h:179]
+I1015 22:10:28.785693322   38405 call_combiner.cc:149]                 ==> CallCombiner::Stop() [0x7fffd00208f0] [/home/lc/lcd/study/grpc/src/core/lib/surface/call.cc:1496: on_complete]
+I1015 22:10:28.785700901   38405 call_combiner.cc:155]                   size: 1 -> 0
+I1015 22:10:28.785707339   38405 call_combiner.cc:186]                   queue empty
+D1015 22:10:28.785721652   38405 call.cc:659]                          BATCH:0x1b4a730 COMPLETE:{kSends} REMAINING:{} (tag:0x1b20838)
+D1015 22:10:28.785755656   38405 call.cc:1321]                         tag:0x1b20838 batch_error=OK op: SEND_INITIAL_METADATA{:status: 200, grpc-accept-encoding: identity, deflate, gzip, content-type: application/grpc} SEND_MESSAGE:flags=0x00000000:len=13 SEND_TRAILING_METADATA{grpc-status: 0}
+I1015 22:10:28.785846848   38405 completion_queue.cc:710]              cq_end_op_for_next(cq=0x1b24230, tag=0x1b20838, error=OK, done=0x8e097b, done_arg=0x1b4a730, storage=0x1b4a7a8)
+D1015 22:10:28.785861386   38405 exec_ctx.cc:48]                       closure 0x1b4a818 finished
+I1015 22:10:28.785873336   38405 completion_queue.cc:965]              grpc_completion_queue_next(cq=0x1b24230, deadline=gpr_timespec { tv_sec: 9223372036854775807, tv_nsec: 0, clock_type: 1 }, reserved=(nil))
+D1015 22:10:28.785886604   38405 completion_queue.cc:946]              PENDING TAGS: 0x1b1d940
+D1015 22:10:28.785897387   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF completion
+I1015 22:10:28.785905225   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 3 -> 2 completion
+I1015 22:10:28.785913914   38405 ev_posix.cc:257]                      (polling-api) pollset_kick(0x1b243f8, (nil))
+D1015 22:10:28.785924840   38405 ev_epoll1_linux.cc:1074]              PS:0x1b243f8 KICK:(nil) curps=(nil) curworker=(nil) root=(nil)
+I1015 22:10:28.785932510   38405 ev_epoll1_linux.cc:1083]               .. kicked_without_poller
+I1015 22:10:28.785944274   38405 completion_queue.cc:1069]             RETURN_EVENT[0x1b24230]: OP_COMPLETE: tag:0x1b47b60 OK
+I1015 22:10:28.785954787   38405 completion_queue.cc:965]              grpc_completion_queue_next(cq=0x1b24230, deadline=gpr_timespec { tv_sec: 9223372036854775807, tv_nsec: 0, clock_type: 1 }, reserved=(nil))
+D1015 22:10:28.785965149   38405 completion_queue.cc:946]              PENDING TAGS: 0x1b1d940
+D1015 22:10:28.785973567   38405 transport.h:285]                      CALL_STACK 0x7fffd0021800:0x7fffd0020870 UNREF completion
+I1015 22:10:28.785981626   38405 ref_counted.h:181]                    stream_refcount:0x7fffd0021800 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 2 -> 1 completion
+I1015 22:10:28.785992901   38405 completion_queue.cc:1069]             RETURN_EVENT[0x1b24230]: OP_COMPLETE: tag:0x1b20838 OK
+I1015 22:10:28.786005958   38405 completion_queue.cc:965]              grpc_completion_queue_next(cq=0x1b24230, deadline=gpr_timespec { tv_sec: 9223372036854775807, tv_nsec: 0, clock_type: 1 }, reserved=(nil))
+D1015 22:10:28.786016554   38405 completion_queue.cc:946]              PENDING TAGS: 0x1b1d940
+I1015 22:10:28.786025061   38405 ev_posix.cc:247]                      (polling-api) pollset_work(0x1b243f8, 9223372036854775807) begin
+I1015 22:10:28.786032752   38405 ev_posix.cc:251]                      (polling-api) pollset_work(0x1b243f8, 9223372036854775807) end
+I1015 22:10:28.786042721   38405 ev_posix.cc:247]                      (polling-api) pollset_work(0x1b243f8, 9223372036854775807) begin
+I1015 22:10:28.786050207   38405 ev_epoll1_linux.cc:752]               PS:0x1b243f8 BEGIN_STARTS:0x7fffffffe040
+I1015 22:10:28.786060885   38405 ev_epoll1_linux.cc:771]               PS:0x1b243f8 BEGIN_REORG:0x7fffffffe040 kick_state=UNKICKED is_reassigning=1
+I1015 22:10:28.786130032   38405 ev_epoll1_linux.cc:824]               PS:0x1b243f8 BEGIN_WAIT:0x7fffffffe040 kick_state=UNKICKED shutdown=0
+I1015 22:10:28.783005030   38436 ev_epoll1_linux.cc:733]               ps: 0x1b1a8d8 poll got 1 events
+D1015 22:10:28.786154089   38436 lockfree_event.cc:219]                LockfreeEvent::SetReady: 0x1b480d8 curr=1b47430
+D1015 22:10:28.786163748   38436 lockfree_event.cc:219]                LockfreeEvent::SetReady: 0x1b480e0 curr=2
+I1015 22:10:28.786171753   38436 ev_epoll1_linux.cc:930]               PS:0x1b1a8d8 END_WORKER:0x7fffe67fb9e0
+I1015 22:10:28.786179553   38436 ev_epoll1_linux.cc:941]                .. choose next poller to be peer 0x7fffe67fb9e0
+D1015 22:10:28.786192621   38436 exec_ctx.cc:36]                       running closure 0x1b47430: created [/home/lc/lcd/study/grpc/src/core/lib/iomgr/tcp_posix.cc:1995]: scheduled [/home/lc/lcd/study/grpc/src/core/lib/iomgr/lockfree_event.cc:248]
+I1015 22:10:28.786202143   38436 tcp_posix.cc:1104]                    TCP:0x1b47280 got_read: OK
+I1015 22:10:28.786211154   38436 tcp_posix.cc:894]                     TCP:0x1b47280 do_read
+I1015 22:10:28.786231486   38436 tcp_posix.cc:829]                     TCP:0x1b47280 call_cb 0x1b48ca0 0x7d2854:0x1b48970
+I1015 22:10:28.786240192   38436 tcp_posix.cc:831]                     READ 0x1b47280 (peer=ipv6:%5B::1%5D:34162) error=OK
+D1015 22:10:28.786251068   38436 tcp_posix.cc:837]                     READ DATA: 00 00 08 06 00 00 00 00 00 ad 55 18 e4 6f ba f0 bc '..........U..o...'
+D1015 22:10:28.786259786   38436 closure.h:297]                        running closure 0x1b48ca0: created [/home/lc/lcd/study/grpc/src/core/ext/transport/chttp2/transport/chttp2_transport.cc:260]: run [/home/lc/lcd/study/grpc/src/core/lib/iomgr/tcp_posix.cc:1141]
+I1015 22:10:28.786280875   38436 combiner.cc:142]                      C:0x1b450a0 grpc_combiner_execute c=0x1b48ca0 last=1
+D1015 22:10:28.786290063   38436 closure.h:306]                        closure 0x1b48ca0 finished
+I1015 22:10:28.786297566   38436 ref_counted.h:181]                    tcp:0x1b472a8 /home/lc/lcd/study/grpc/src/core/lib/iomgr/tcp_posix.cc:1142 unref 4 -> 3 read
+D1015 22:10:28.786304046   38436 exec_ctx.cc:48]                       closure 0x1b47430 finished
+I1015 22:10:28.786313274   38436 combiner.cc:216]                      C:0x1b450a0 grpc_combiner_continue_exec_ctx contended=0 exec_ctx_ready_to_finish=0 time_to_execute_final_list=0
+I1015 22:10:28.786321579   38436 combiner.cc:253]                      C:0x1b450a0 maybe_finish_one n=0x1b48ca0
+I1015 22:10:28.786334516   38436 parsing.cc:337]                       INCOMING[0x1b48970]: PING len:8 id:0x00000000
+D1015 22:10:28.786343830   38436 parsing.cc:888]                       INCOMING[0x1b48970;(nil)]: Parse 8b last frame fragment with ping
+I1015 22:10:28.786358009   38436 frame_ping.cc:109]                    SERVER[0x1b48970]: received ping ad5518e46fbaf0bc: now=@28398ms transport_idle=1 next_allowed_ping=@-∞ ping_strikes=0
+I1015 22:10:28.786368715   38436 chttp2_transport.cc:958]              W:0x1b48970 SERVER [ipv6:%5B::1%5D:34162] state IDLE -> WRITING [PING_RESPONSE]
+I1015 22:10:28.786376901   38436 ref_counted.h:74]                     chttp2_refcount:0x1b48978 ref 7 -> 8
+I1015 22:10:28.786384650   38436 combiner.cc:336]                      C:0x1b450a0 grpc_combiner_execute_finally c=0x1b48bc8; ac=0x1b450a0
+I1015 22:10:28.786416188   38436 ref_counted.h:164]                    chttp2_refcount:0x1b48978 unref 8 -> 7
+I1015 22:10:28.786426328   38436 chttp2_transport.cc:3051]             ipv6:%5B::1%5D:34162: Keepalive ping cancelled. Resetting timer.
+I1015 22:10:28.786434761   38436 ref_counted.h:74]                     chttp2_refcount:0x1b48978 ref 7 -> 8
+D1015 22:10:28.786454774   38436 posix_engine.cc:491]                  (event_engine) PosixEventEngine:0x1b21ea0 scheduling callback:{28592256,44}
+I1015 22:10:28.786628251   38436 ref_counted.h:85]                     tcp:0x1b472a8 /home/lc/lcd/study/grpc/src/core/lib/iomgr/tcp_posix.cc:1157 ref 3 -> 4 read
+D1015 22:10:28.786641979   38436 closure.h:297]                        running closure 0x1b47430: created [/home/lc/lcd/study/grpc/src/core/lib/iomgr/tcp_posix.cc:1995]: run [/home/lc/lcd/study/grpc/src/core/lib/iomgr/tcp_posix.cc:1177]
+I1015 22:10:28.786651567   38436 tcp_posix.cc:1104]                    TCP:0x1b47280 got_read: OK
+I1015 22:10:28.786659489   38436 tcp_posix.cc:894]                     TCP:0x1b47280 do_read
+I1015 22:10:28.786672894   38436 <unknown>:-1]                         UNREF 0x7fffd001e7f0 1->0
+I1015 22:10:28.786704250   38436 tcp_posix.cc:829]                     TCP:0x1b47280 call_cb 0x1b48ca0 0x7d2854:0x1b48970
+I1015 22:10:28.786730652   38436 tcp_posix.cc:831]                     READ 0x1b47280 (peer=ipv6:%5B::1%5D:34162) error=INTERNAL:Socket closed {fd:12, grpc_status:14, target_address:"ipv6:%5B::1%5D:34162"}
+D1015 22:10:28.786741015   38436 closure.h:297]                        running closure 0x1b48ca0: created [/home/lc/lcd/study/grpc/src/core/ext/transport/chttp2/transport/chttp2_transport.cc:260]: run [/home/lc/lcd/study/grpc/src/core/lib/iomgr/tcp_posix.cc:1141]
+I1015 22:10:28.786751387   38436 combiner.cc:142]                      C:0x1b450a0 grpc_combiner_execute c=0x1b48ca0 last=5
+D1015 22:10:28.786760533   38436 closure.h:306]                        closure 0x1b48ca0 finished
+I1015 22:10:28.786769570   38436 ref_counted.h:181]                    tcp:0x1b472a8 /home/lc/lcd/study/grpc/src/core/lib/iomgr/tcp_posix.cc:1142 unref 4 -> 3 read
+D1015 22:10:28.786777389   38436 closure.h:306]                        closure 0x1b47430 finished
+I1015 22:10:28.786785786   38436 combiner.cc:293]                      C:0x1b450a0 finish old_state=7
+I1015 22:10:28.786794629   38436 combiner.cc:216]                      C:0x1b450a0 grpc_combiner_continue_exec_ctx contended=0 exec_ctx_ready_to_finish=0 time_to_execute_final_list=0
+I1015 22:10:28.786802395   38436 combiner.cc:253]                      C:0x1b450a0 maybe_finish_one n=0x1b48ca0
+I1015 22:10:28.786869707   38436 chttp2_transport.cc:1699]             0x1b48970 CANCEL PINGS: INTERNAL:Socket closed {fd:12, grpc_status:14, target_address:"ipv6:%5B::1%5D:34162"}
+I1015 22:10:28.786908150   38436 ref_counted.h:164]                    chttp2_refcount:0x1b48978 unref 8 -> 7
+I1015 22:10:28.786919725   38436 combiner.cc:293]                      C:0x1b450a0 finish old_state=5
+I1015 22:10:28.786925826   38436 combiner.cc:216]                      C:0x1b450a0 grpc_combiner_continue_exec_ctx contended=0 exec_ctx_ready_to_finish=0 time_to_execute_final_list=1
+I1015 22:10:28.786931313   38436 combiner.cc:275]                      C:0x1b450a0 execute_final[0] c=0x1b48bc8
+I1015 22:10:28.786941322   38436 chttp2_transport.cc:958]              W:0x1b48970 SERVER [ipv6:%5B::1%5D:34162] state WRITING -> WRITING+MORE [begin partial write in background]
+I1015 22:10:28.786947402   38436 chttp2_transport.cc:1087]             SERVER[0x1b48970]: Write 17 bytes
+I1015 22:10:28.786952897   38436 ref_counted.h:74]                     chttp2_refcount:0x1b48978 ref 7 -> 8
+I1015 22:10:28.786959341   38436 tcp_posix.cc:1827]                    WRITE 0x1b47280 (peer=ipv6:%5B::1%5D:34162)
+D1015 22:10:28.786966678   38436 tcp_posix.cc:1831]                    WRITE DATA: 00 00 08 06 01 00 00 00 00 ad 55 18 e4 6f ba f0 bc '..........U..o...'
+I1015 22:10:28.787003997   38436 tcp_posix.cc:1875]                    write: OK
+D1015 22:10:28.787010470   38436 closure.h:297]                        running closure 0x1b48c58: created [/home/lc/lcd/study/grpc/src/core/ext/transport/chttp2/transport/chttp2_transport.cc:260]: run [/home/lc/lcd/study/grpc/src/core/lib/iomgr/tcp_posix.cc:1877]
+I1015 22:10:28.787016391   38436 chttp2_transport.cc:1101]             SERVER[0x1b48970]: Finish write
+I1015 22:10:28.787022030   38436 combiner.cc:142]                      C:0x1b450a0 grpc_combiner_execute c=0x1b48c58 last=3
+D1015 22:10:28.787027442   38436 closure.h:306]                        closure 0x1b48c58 finished
+I1015 22:10:28.787032749   38436 ref_counted.h:164]                    chttp2_refcount:0x1b48978 unref 8 -> 7
+I1015 22:10:28.787038077   38436 combiner.cc:293]                      C:0x1b450a0 finish old_state=5
+I1015 22:10:28.827930438   38436 combiner.cc:216]                      C:0x1b450a0 grpc_combiner_continue_exec_ctx contended=0 exec_ctx_ready_to_finish=0 time_to_execute_final_list=0
+I1015 22:10:28.827972195   38436 combiner.cc:253]                      C:0x1b450a0 maybe_finish_one n=0x1b48c58
+I1015 22:10:28.827989382   38436 chttp2_transport.cc:958]              W:0x1b48970 SERVER [ipv6:%5B::1%5D:34162] state WRITING+MORE -> WRITING [continue writing]
+I1015 22:10:28.827999955   38436 ref_counted.h:74]                     chttp2_refcount:0x1b48978 ref 7 -> 8
+I1015 22:10:28.828009074   38436 combiner.cc:336]                      C:0x1b450a0 grpc_combiner_execute_finally c=0x1b48bc8; ac=0x1b450a0
+I1015 22:10:28.828021286   38436 ref_counted.h:164]                    chttp2_refcount:0x1b48978 unref 8 -> 7
+I1015 22:10:28.828029662   38436 combiner.cc:293]                      C:0x1b450a0 finish old_state=5
+I1015 22:10:28.828037734   38436 combiner.cc:216]                      C:0x1b450a0 grpc_combiner_continue_exec_ctx contended=0 exec_ctx_ready_to_finish=0 time_to_execute_final_list=1
+I1015 22:10:28.828044880   38436 combiner.cc:275]                      C:0x1b450a0 execute_final[0] c=0x1b48bc8
+I1015 22:10:28.828058376   38436 chttp2_transport.cc:958]              W:0x1b48970 SERVER [ipv6:%5B::1%5D:34162] state WRITING -> IDLE [begin writing nothing]
+I1015 22:10:28.828211740   38436 chttp2_transport.cc:1699]             0x1b48970 CANCEL PINGS: UNKNOWN:Delayed close due to in-progress write {created_time:"2023-10-15T22:10:28.786886651+08:00", file_line:739, file:"/home/lc/lcd/study/grpc/src/core/ext/transport/chttp2/transport/chttp2_transport.cc", children:[INTERNAL:Socket closed {target_address:"ipv6:%5B::1%5D:34162", grpc_status:14, fd:12}]}
+I1015 22:10:28.828247509   38436 chttp2_transport.cc:3074]             transport 0x1b48970 set connectivity_state=4; status=OK; reason=close_transport
+I1015 22:10:28.828256507   38436 connectivity_state.cc:158]            ConnectivityStateTracker server_transport[0x1b48e30]: READY -> SHUTDOWN (close_transport, OK)
+I1015 22:10:28.828263088   38436 connectivity_state.cc:166]            ConnectivityStateTracker server_transport[0x1b48e30]: notifying watcher 0x1b45770: READY -> SHUTDOWN
+I1015 22:10:28.828303537   38436 ref_counted.h:164]                    chttp2_refcount:0x1b48978 unref 7 -> 6
+I1015 22:10:28.828314572   38436 ref_counted.h:164]                    chttp2_refcount:0x1b48978 unref 6 -> 5
+I1015 22:10:28.828327782   38436 ev_posix.cc:199]                      (polling-api) fd_shutdown(12)
+I1015 22:10:28.828333437   38436 ev_posix.cc:200]                      (fd-trace) fd_shutdown(12)
+D1015 22:10:28.828380639   38436 lockfree_event.cc:169]                LockfreeEvent::SetShutdown: 0x1b480d8 curr=0 err=UNKNOWN:Delayed close due to in-progress write {created_time:"2023-10-15T22:10:28.786886651+08:00", file_line:739, file:"/home/lc/lcd/study/grpc/src/core/ext/transport/chttp2/transport/chttp2_transport.cc", children:[INTERNAL:Socket closed {target_address:"ipv6:%5B::1%5D:34162", grpc_status:14, fd:12}]}
+D1015 22:10:28.828426224   38436 lockfree_event.cc:169]                LockfreeEvent::SetShutdown: 0x1b480e0 curr=2 err=UNKNOWN:Delayed close due to in-progress write {created_time:"2023-10-15T22:10:28.786886651+08:00", file_line:739, file:"/home/lc/lcd/study/grpc/src/core/ext/transport/chttp2/transport/chttp2_transport.cc", children:[INTERNAL:Socket closed {target_address:"ipv6:%5B::1%5D:34162", grpc_status:14, fd:12}]}
+D1015 22:10:28.828465736   38436 lockfree_event.cc:169]                LockfreeEvent::SetShutdown: 0x1b480e8 curr=1b474c0 err=UNKNOWN:Delayed close due to in-progress write {created_time:"2023-10-15T22:10:28.786886651+08:00", file_line:739, file:"/home/lc/lcd/study/grpc/src/core/ext/transport/chttp2/transport/chttp2_transport.cc", children:[INTERNAL:Socket closed {target_address:"ipv6:%5B::1%5D:34162", grpc_status:14, fd:12}]}
+I1015 22:10:28.828813212   38436 memory_quota.cc:514]                  Removing allocator 0x1b43c70
+I1015 22:10:28.828858815   38436 ref_counted.h:181]                    tcp:0x1b472a8 /home/lc/lcd/study/grpc/src/core/lib/iomgr/tcp_posix.cc:820 unref 3 -> 2 posted_reclaimer
+I1015 22:10:28.828873712   38436 ref_counted.h:164]                    chttp2_refcount:0x1b48978 unref 5 -> 4
+I1015 22:10:28.828883096   38436 combiner.cc:293]                      C:0x1b450a0 finish old_state=3
+D1015 22:10:28.828892177   38436 exec_ctx.cc:36]                       running closure 0x7fffd001c908: created [/home/lc/lcd/study/grpc/src/core/lib/transport/connectivity_state.cc:69]: scheduled [/home/lc/lcd/study/grpc/src/core/lib/transport/connectivity_state.cc:70]
+I1015 22:10:28.828901445   38436 connectivity_state.cc:78]             watcher 0x1b45770: delivering async notification for SHUTDOWN (OK)
+D1015 22:10:28.828914711   38436 transport.h:268]                      SERVER_CHANNEL 0x1b49d70:0x1b49d70 REF Server::ChannelData::Destroy
+I1015 22:10:28.828923252   38436 ref_counted.h:114]                    stream_refcount:0x1b49d70 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:271 ref 1 -> 2 Server::ChannelData::Destroy
+I1015 22:10:28.828930620   38436 server.cc:1487]                       Disconnected client
+I1015 22:10:28.828946098   38436 chttp2_transport.cc:2031]             perform_transport_op[t=0x1b48970]:  SET_ACCEPT_STREAM:(nil)((nil),...)
+I1015 22:10:28.828954480   38436 ref_counted.h:74]                     chttp2_refcount:0x1b48978 ref 4 -> 5
+I1015 22:10:28.828963490   38436 combiner.cc:142]                      C:0x1b450a0 grpc_combiner_execute c=0x7fffd001b9c0 last=1
+D1015 22:10:28.828974349   38436 exec_ctx.cc:48]                       closure 0x7fffd001c908 finished
+D1015 22:10:28.828982918   38436 exec_ctx.cc:36]                       running closure 0x1b474c0: created [/home/lc/lcd/study/grpc/src/core/lib/iomgr/tcp_posix.cc:2027]: scheduled [/home/lc/lcd/study/grpc/src/core/lib/iomgr/lockfree_event.cc:199]
+I1015 22:10:28.829097375   38436 tcp_posix.cc:1460]                    TCP:0x1b47280 got_error: UNKNOWN:FD Shutdown {created_time:"2023-10-15T22:10:28.828753217+08:00", file_line:200, file:"/home/lc/lcd/study/grpc/src/core/lib/iomgr/lockfree_event.cc", children:[UNKNOWN:Delayed close due to in-progress write {file:"/home/lc/lcd/study/grpc/src/core/ext/transport/chttp2/transport/chttp2_transport.cc", file_line:739, created_time:"2023-10-15T22:10:28.786886651+08:00", children:[INTERNAL:Socket closed {fd:12, grpc_status:14, target_address:"ipv6:%5B::1%5D:34162"}]}]}
+I1015 22:10:28.829113723   38436 ref_counted.h:181]                    tcp:0x1b472a8 /home/lc/lcd/study/grpc/src/core/lib/iomgr/tcp_posix.cc:1468 unref 2 -> 1 error-tracking
+D1015 22:10:28.829125745   38436 exec_ctx.cc:48]                       closure 0x1b474c0 finished
+I1015 22:10:28.829135574   38436 combiner.cc:216]                      C:0x1b450a0 grpc_combiner_continue_exec_ctx contended=0 exec_ctx_ready_to_finish=0 time_to_execute_final_list=0
+I1015 22:10:28.829144346   38436 combiner.cc:253]                      C:0x1b450a0 maybe_finish_one n=0x7fffd001b9c0
+I1015 22:10:28.829154047   38436 ref_counted.h:164]                    chttp2_refcount:0x1b48978 unref 5 -> 4
+I1015 22:10:28.829162611   38436 combiner.cc:293]                      C:0x1b450a0 finish old_state=3
+D1015 22:10:28.829171282   38436 exec_ctx.cc:36]                       running closure 0x7fffd001b8f0: created [/home/lc/lcd/study/grpc/src/core/lib/transport/transport.cc:241]: scheduled [/home/lc/lcd/study/grpc/src/core/ext/transport/chttp2/transport/chttp2_transport.cc:2025]
+D1015 22:10:28.829431413   38436 exec_ctx.cc:48]                       closure 0x7fffd001b8f0 finished
+D1015 22:10:28.829450386   38436 exec_ctx.cc:36]                       running closure 0x1b49f58: created [/home/lc/lcd/study/grpc/src/core/lib/surface/server.cc:1485]: scheduled [/home/lc/lcd/study/grpc/src/core/lib/transport/transport.cc:234]
+D1015 22:10:28.829462257   38436 transport.h:285]                      SERVER_CHANNEL 0x1b49d70:0x1b49d70 UNREF Server::ChannelData::Destroy
+I1015 22:10:28.829471507   38436 ref_counted.h:181]                    stream_refcount:0x1b49d70 /home/lc/lcd/study/grpc/src/core/lib/transport/transport.h:288 unref 2 -> 1 Server::ChannelData::Destroy
+D1015 22:10:28.829479822   38436 exec_ctx.cc:48]                       closure 0x1b49f58 finished
+I1015 22:10:28.786473343   38435 ev_epoll1_linux.cc:841]               PS:0x1b1a8d8 BEGIN_DONE:0x7fffe6ffc9e0 kick_state=DESIGNATED_POLLER shutdown=0 kicked_without_poller: 0
+I1015 22:10:28.829545374   38435 ev_epoll1_linux.cc:733]               ps: 0x1b1a8d8 poll got 1 events
+D1015 22:10:28.829558480   38435 lockfree_event.cc:219]                LockfreeEvent::SetReady: 0x1b480e8 curr=7fffd001cd91
+D1015 22:10:28.829567337   38435 lockfree_event.cc:219]                LockfreeEvent::SetReady: 0x1b480d8 curr=7fffd001c3d1
+D1015 22:10:28.829575499   38435 lockfree_event.cc:219]                LockfreeEvent::SetReady: 0x1b480e0 curr=7fffd0014581
+I1015 22:10:28.829584515   38435 ev_epoll1_linux.cc:930]               PS:0x1b1a8d8 END_WORKER:0x7fffe6ffc9e0
+I1015 22:10:28.829595334   38435 ev_epoll1_linux.cc:911]                .. mark pollset 0x1b1a8d8 inactive
+I1015 22:10:28.829606466   38435 ev_epoll1_linux.cc:884]                .. choose next poller to be 0x7fffffffe040
+I1015 22:10:28.829621894   38435 ev_epoll1_linux.cc:992]                .. remove worker
+I1015 22:10:28.829630563   38435 ev_posix.cc:251]                      (polling-api) pollset_work(0x1b1a8d8, 28726) end
+I1015 22:10:28.829642463   38435 ev_posix.cc:247]                      (polling-api) pollset_work(0x1b1a8d8, 28726) begin
+I1015 22:10:28.829650729   38435 ev_epoll1_linux.cc:752]               PS:0x1b1a8d8 BEGIN_STARTS:0x7fffe6ffc9e0
+I1015 22:10:28.829661280   38435 ev_epoll1_linux.cc:771]               PS:0x1b1a8d8 BEGIN_REORG:0x7fffe6ffc9e0 kick_state=UNKICKED is_reassigning=1
+I1015 22:10:28.829669997   38435 ev_epoll1_linux.cc:824]               PS:0x1b1a8d8 BEGIN_WAIT:0x7fffe6ffc9e0 kick_state=UNKICKED shutdown=0
+I1015 22:10:28.829694947   38405 ev_epoll1_linux.cc:841]               PS:0x1b243f8 BEGIN_DONE:0x7fffffffe040 kick_state=DESIGNATED_POLLER shutdown=0 kicked_without_poller: 0
+I1015 22:10:28.829711141   38436 ev_epoll1_linux.cc:992]                .. remove worker
+I1015 22:10:28.829719743   38436 ev_posix.cc:251]                      (polling-api) pollset_work(0x1b1a8d8, 28785) end
+I1015 22:10:28.829728926   38436 ev_posix.cc:247]                      (polling-api) pollset_work(0x1b1a8d8, 28785) begin
+I1015 22:10:28.829736760   38436 ev_epoll1_linux.cc:752]               PS:0x1b1a8d8 BEGIN_STARTS:0x7fffe67fb9e0
+I1015 22:10:28.829745173   38436 ev_epoll1_linux.cc:824]               PS:0x1b1a8d8 BEGIN_WAIT:0x7fffe67fb9e0 kick_state=UNKICKED shutdown=0
+I1015 22:10:29.113635500   38435 ev_epoll1_linux.cc:841]               PS:0x1b1a8d8 BEGIN_DONE:0x7fffe6ffc9e0 kick_state=KICKED shutdown=0 kicked_without_poller: 0
+I1015 22:10:29.113692384   38435 ev_epoll1_linux.cc:930]               PS:0x1b1a8d8 END_WORKER:0x7fffe6ffc9e0
+I1015 22:10:29.113703251   38435 ev_epoll1_linux.cc:992]                .. remove worker
+I1015 22:10:29.113715702   38435 ev_posix.cc:251]                      (polling-api) pollset_work(0x1b1a8d8, 28726) end
+D1015 22:10:29.113744307   38435 completion_queue.cc:946]              PENDING TAGS:
+I1015 22:10:29.113753825   38435 completion_queue.cc:1069]             RETURN_EVENT[0x1b1a710]: QUEUE_TIMEOUT
+I1015 22:10:29.172630113   38436 ev_epoll1_linux.cc:841]               PS:0x1b1a8d8 BEGIN_DONE:0x7fffe67fb9e0 kick_state=KICKED shutdown=0 kicked_without_poller: 0
+I1015 22:10:29.172684176   38436 ev_epoll1_linux.cc:930]               PS:0x1b1a8d8 END_WORKER:0x7fffe67fb9e0
+I1015 22:10:29.172694585   38436 ev_epoll1_linux.cc:992]                .. remove worker
+I1015 22:10:29.172706719   38436 ev_posix.cc:251]                      (polling-api) pollset_work(0x1b1a8d8, 28785) end
+D1015 22:10:29.172765437   38436 completion_queue.cc:946]              PENDING TAGS:
+I1015 22:10:29.172777575   38436 completion_queue.cc:1069]             RETURN_EVENT[0x1b1a710]: QUEUE_TIMEOUT
+I1015 22:10:29.213847883   38435 completion_queue.cc:965]              grpc_completion_queue_next(cq=0x1b1a710, deadline=gpr_timespec { tv_sec: 1697379030, tv_nsec: 213838024, clock_type: 1 }, reserved=(nil))
+D1015 22:10:29.213909905   38435 completion_queue.cc:946]              PENDING TAGS:
+I1015 22:10:29.213930452   38435 ev_posix.cc:247]                      (polling-api) pollset_work(0x1b1a8d8, 29827) begin
+I1015 22:10:29.213939978   38435 ev_epoll1_linux.cc:752]               PS:0x1b1a8d8 BEGIN_STARTS:0x7fffe6ffc9e0
+I1015 22:10:29.213948961   38435 ev_epoll1_linux.cc:824]               PS:0x1b1a8d8 BEGIN_WAIT:0x7fffe6ffc9e0 kick_state=UNKICKED shutdown=0
+I1015 22:10:29.272899402   38436 completion_queue.cc:965]              grpc_completion_queue_next(cq=0x1b1a710, deadline=gpr_timespec { tv_sec: 1697379030, tv_nsec: 272889196, clock_type: 1 }, reserved=(nil))
+D1015 22:10:29.272967347   38436 completion_queue.cc:946]              PENDING TAGS:
+I1015 22:10:29.272987734   38436 ev_posix.cc:247]                      (polling-api) pollset_work(0x1b1a8d8, 29886) begin
+I1015 22:10:29.272997062   38436 ev_epoll1_linux.cc:752]               PS:0x1b1a8d8 BEGIN_STARTS:0x7fffe67fb9e0
+I1015 22:10:29.273005700   38436 ev_epoll1_linux.cc:824]               PS:0x1b1a8d8 BEGIN_WAIT:0x7fffe67fb9e0 kick_state=UNKICKED shutdown=0
+I1015 22:10:29.679698587   38430 timer_manager.cc:207]                 wait ended: was_timed:1 kicked:0
+D1015 22:10:29.679765374   38430 timer_generic.cc:696]                 TIMER CHECK BEGIN: now=29292 next=9223372036854775807 tls_min=28291 glob_min=29292
+D1015 22:10:29.679782183   38430 timer_generic.cc:596]                   .. shard[0]->min_deadline = 29292
+D1015 22:10:29.679792403   38430 timer_generic.cc:512]                   .. shard[0]: heap_empty=true
+D1015 22:10:29.679802331   38430 timer_generic.cc:483]                   .. shard[0]->queue_deadline_cap --> 30292
+D1015 22:10:29.679810291   38430 timer_generic.cc:556]                   .. shard[0] popped 0
+D1015 22:10:29.679817061   38430 timer_generic.cc:615]                   .. result --> 1, shard[0]->min_deadline 29292 --> 30293, now=29292
+D1015 22:10:29.679825950   38430 timer_generic.cc:512]                   .. shard[1]: heap_empty=true
+D1015 22:10:29.679832509   38430 timer_generic.cc:483]                   .. shard[1]->queue_deadline_cap --> 30292
+D1015 22:10:29.679840264   38430 timer_generic.cc:556]                   .. shard[1] popped 0
+D1015 22:10:29.679846648   38430 timer_generic.cc:615]                   .. result --> 1, shard[1]->min_deadline 29292 --> 30293, now=29292
+D1015 22:10:29.679855224   38430 timer_generic.cc:512]                   .. shard[2]: heap_empty=true
+D1015 22:10:29.679862193   38430 timer_generic.cc:483]                   .. shard[2]->queue_deadline_cap --> 30292
+D1015 22:10:29.679869445   38430 timer_generic.cc:556]                   .. shard[2] popped 0
+D1015 22:10:29.679875675   38430 timer_generic.cc:615]                   .. result --> 1, shard[2]->min_deadline 29292 --> 30293, now=29292
+D1015 22:10:29.679883241   38430 timer_generic.cc:512]                   .. shard[3]: heap_empty=true
+D1015 22:10:29.679889899   38430 timer_generic.cc:483]                   .. shard[3]->queue_deadline_cap --> 30292
+D1015 22:10:29.679896887   38430 timer_generic.cc:556]                   .. shard[3] popped 0
+D1015 22:10:29.679903293   38430 timer_generic.cc:615]                   .. result --> 1, shard[3]->min_deadline 29292 --> 30293, now=29292
+D1015 22:10:29.679911306   38430 timer_generic.cc:722]                 TIMER CHECK END: r=1; next=30293
+I1015 22:10:29.679918790   38430 timer_manager.cc:191]                 sleep for a 1001 milliseconds
+^C
+[lc@VM-16-12-centos-build]$I1015 22:10:30.214609399   38435 ev_epoll1_linux.cc:841]               PS:0x1b1a8d8 BEGIN_DONE:0x7fffe6ffc9e0 kick_state=KICKED shutdown=0 kicked_without_poller: 0
+I1015 22:10:30.214653906   38435 ev_epoll1_linux.cc:930]               PS:0x1b1a8d8 END_WORKER:0x7fffe6ffc9e0
+I1015 22:10:30.214666269   38435 ev_epoll1_linux.cc:992]                .. remove worker
+I1015 22:10:30.214677330   38435 ev_posix.cc:251]                      (polling-api) pollset_work(0x1b1a8d8, 29827) end
+D1015 22:10:30.214704107   38435 completion_queue.cc:946]              PENDING TAGS:
+I1015 22:10:30.214714505   38435 completion_queue.cc:1069]             RETURN_EVENT[0x1b1a710]: QUEUE_TIMEOUT
+I1015 22:10:30.275916482   38436 ev_epoll1_linux.cc:841]               PS:0x1b1a8d8 BEGIN_DONE:0x7fffe67fb9e0 kick_state=KICKED shutdown=0 kicked_without_poller: 0
+I1015 22:10:30.279816493   38436 ev_epoll1_linux.cc:930]               PS:0x1b1a8d8 END_WORKER:0x7fffe67fb9e0
+I1015 22:10:30.280744536   38436 ev_epoll1_linux.cc:992]                .. remove worker
+I1015 22:10:30.280767770   38436 ev_posix.cc:251]                      (polling-api) pollset_work(0x1b1a8d8, 29886) end
+D1015 22:10:30.280794881   38436 completion_queue.cc:946]              PENDING TAGS:
+I1015 22:10:30.280805795   38436 completion_queue.cc:1069]             RETURN_EVENT[0x1b1a710]: QUEUE_TIMEOUT

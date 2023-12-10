@@ -70,13 +70,13 @@ int main(int argc, char** argv) {
   Status feature_status;
   // Request to a Greeter service
   hello_request.set_name("user");
-  helloworld::Greeter::NewStub(channel)->async()->SayHello(
-      &hello_context, &hello_request, &hello_response, [&](Status status) {
-        std::lock_guard<std::mutex> lock(mu);
-        done_count++;
-        hello_status = std::move(status);
-        cv.notify_all();
-      });
+  // helloworld::Greeter::NewStub(channel)->async()->SayHello(
+  //     &hello_context, &hello_request, &hello_response, [&](Status status) {
+  //       std::lock_guard<std::mutex> lock(mu);
+  //       done_count++;
+  //       hello_status = std::move(status);
+  //       cv.notify_all();
+  //     });
   // Request to a RouteGuide service
   feature_request.set_latitude(50);
   feature_request.set_longitude(100);
@@ -89,7 +89,7 @@ int main(int argc, char** argv) {
         cv.notify_all();
       });
   // Wait for both requests to finish
-  cv.wait(lock, [&]() { return done_count == 2; });
+  cv.wait(lock, [&]() { return done_count == 1; });
   if (hello_status.ok()) {
     std::cout << "Greeter received: " << hello_response.message() << std::endl;
   } else {

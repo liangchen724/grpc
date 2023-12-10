@@ -47,6 +47,8 @@ option(gRPC_BUILD_TESTS "Build tests" OFF)
 option(gRPC_BUILD_CODEGEN "Build codegen" ON)
 option(gRPC_BACKWARDS_COMPATIBILITY_MODE "Build libraries that are binary compatible across a larger number of OS and libc versions" OFF)
 
+set(CMAKE_VERBOSE_MAKEFILE ON)
+
 set(gRPC_INSTALL_default ON)
 if(NOT CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
   # Disable gRPC_INSTALL by default if building as a submodule
@@ -271,8 +273,9 @@ endif()
 if (MINGW)
   add_definitions(-D_WIN32_WINNT=0x600)
 endif()
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${_gRPC_C_CXX_FLAGS}")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${_gRPC_C_CXX_FLAGS}")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g ${_gRPC_C_CXX_FLAGS}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g ${_gRPC_C_CXX_FLAGS}")
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 if(gRPC_USE_PROTO_LITE)
   set(_gRPC_PROTOBUF_LIBRARY_NAME "libprotobuf-lite")

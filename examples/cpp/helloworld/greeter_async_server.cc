@@ -33,7 +33,10 @@
 #else
 #include "helloworld.grpc.pb.h"
 #endif
-
+#include <grpcpp/ext/proto_server_reflection_plugin.h>
+#include <grpcpp/grpcpp.h>
+#include <grpcpp/health_check_service_interface.h>
+// #include <gprpp/debug_location.h>
 ABSL_FLAG(uint16_t, port, 50051, "Server port for the service");
 
 using grpc::Server;
@@ -46,6 +49,9 @@ using helloworld::Greeter;
 using helloworld::HelloReply;
 using helloworld::HelloRequest;
 
+int g_lc_index = 0;
+void *g_poistion = nullptr;
+
 class ServerImpl final {
  public:
   ~ServerImpl() {
@@ -57,7 +63,9 @@ class ServerImpl final {
   // There is no shutdown handling in this code.
   void Run(uint16_t port) {
     std::string server_address = absl::StrFormat("0.0.0.0:%d", port);
-
+    grpc::EnableDefaultHealthCheckService(true);
+    grpc::reflection::InitProtoReflectionServerBuilderPlugin();
+    // setenv("GRPC_VERBOSITY", "DEBUG", true);
     ServerBuilder builder;
     // Listen on the given address without any authentication mechanism.
     builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
@@ -104,8 +112,13 @@ class ServerImpl final {
         // Spawn a new CallData instance to serve new clients while we process
         // the one for this CallData. The instance will deallocate itself as
         // part of its FINISH state.
-        new CallData(service_, cq_);
+        // new CallData(service_, cq_);
 
+        new ((char*)g_poistion + g_lc_index * sizeof(CallData))CallData(service_, cq_);
+        g_lc_index = !g_lc_index;
+        // extern grpc_core::DebugOnlyTraceFlag grpc_trace_closure;
+        // grpc_trace_closure.set_enable(true);
+        //  grpc_tracer_set_enabled("all", 1);
         // The actual processing.
         std::string prefix("Hello ");
         reply_.set_message(prefix + request_.name());
@@ -118,7 +131,8 @@ class ServerImpl final {
       } else {
         GPR_ASSERT(status_ == FINISH);
         // Once in the FINISH state, deallocate ourselves (CallData).
-        delete this;
+        // delete this;
+        // CallData::~CallData();
       }
     }
 
@@ -148,8 +162,11 @@ class ServerImpl final {
 
   // This can be run in multiple threads if needed.
   void HandleRpcs() {
+    g_poistion = malloc(sizeof(CallData) * 2);
+    // g_lc_index
     // Spawn a new CallData instance to serve new clients.
-    new CallData(&service_, cq_.get());
+    new ((char *)g_poistion + g_lc_index * sizeof(CallData))CallData(&service_, cq_.get());
+    g_lc_index = !g_lc_index;
     void* tag;  // uniquely identifies a request.
     bool ok;
     while (true) {
@@ -159,8 +176,9 @@ class ServerImpl final {
       // The return value of Next should always be checked. This return value
       // tells us whether there is any kind of event or cq_ is shutting down.
       GPR_ASSERT(cq_->Next(&tag, &ok));
-      GPR_ASSERT(ok);
-      static_cast<CallData*>(tag)->Proceed();
+      // GPR_ASSERT(ok);
+      if (ok)
+        static_cast<CallData*>(tag)->Proceed();
     }
   }
 
@@ -170,6 +188,8 @@ class ServerImpl final {
 };
 
 int main(int argc, char** argv) {
+  const char *p = "SayHello";
+  printf("p %p\n", p);
   absl::ParseCommandLine(argc, argv);
   ServerImpl server;
   server.Run(absl::GetFlag(FLAGS_port));
